@@ -1,0 +1,6 @@
+{
+    "name": "widgets",
+    "dependencies": {
+        "astal": "/usr/share/astal/gjs"
+    }
+}

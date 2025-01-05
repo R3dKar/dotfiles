@@ -2,9 +2,9 @@
 
 ```bash
 # Dependencies
-yay -S zsh hyprland ttf-meslo-nerd ttf-terminus-nerd zsh-theme-powerlevel10k-git alacritty stow nvidia-dkms libva-nvidia-driver
+yay -S zsh hyprland ttf-meslo-nerd ttf-terminus-nerd zsh-theme-powerlevel10k-git alacritty stow nvidia-dkms libva-nvidia-driver aylurs-gtk-shell-git libastal-io-git libastal-git
 
-# Stowing
+# Initialization
 stow -Rvt ~ dotfiles
 ```
 
