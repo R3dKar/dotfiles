@@ -6,7 +6,7 @@ function colorize {
 
 colorize ls grep ip
 
-alias l="ls"
+alias l="ls -l"
 alias ll="ls -la"
 
 alias ipa="ip a"
