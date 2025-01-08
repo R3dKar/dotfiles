@@ -1,6 +1,8 @@
-import { App, Gdk, Gtk, Astal } from "astal/gtk4";
+import { App, Gdk, Gtk, Astal } from 'astal/gtk4';
+import RamInfo from './elements/ram/RamInfo';
+import CpuInfo from './elements/cpu/CpuInfo';
+import BatteryInfo from './elements/battery/BatteryInfo';
 
-const { Orientation } = Gtk;
 const { WindowAnchor, Exclusivity } = Astal;
 
 export default (monitor: Gdk.Monitor) => {
@@ -17,13 +19,15 @@ export default (monitor: Gdk.Monitor) => {
         cssClasses={['topbar__container']}
         hexpand
       >
-        <box orientation={Orientation.HORIZONTAL} spacing={3}>
-
+        <box spacing={10}>
+          <BatteryInfo/>
+          <CpuInfo/>
+          <RamInfo/>
         </box>
 
         <box/>
 
-        <box orientation={Orientation.HORIZONTAL} spacing={3}>
+        <box spacing={10}>
 
         </box>
       </centerbox>
