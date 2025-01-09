@@ -1,7 +1,8 @@
-import { App, Gdk, Gtk, Astal } from 'astal/gtk4';
-import RamInfo from './elements/ram/RamInfo';
-import CpuInfo from './elements/cpu/CpuInfo';
-import BatteryInfo from './elements/battery/BatteryInfo';
+import { App, Gdk, Astal } from 'astal/gtk4';
+import RamInfo from './elements/RamInfo';
+import CpuInfo from './elements/CpuInfo';
+import BatteryInfo from './elements/BatteryInfo';
+import WeatherInfo from './elements/WeatherInfo';
 
 const { WindowAnchor, Exclusivity } = Astal;
 
@@ -28,7 +29,7 @@ export default (monitor: Gdk.Monitor) => {
         <box/>
 
         <box spacing={10}>
-
+          <WeatherInfo/>
         </box>
       </centerbox>
     </window>
