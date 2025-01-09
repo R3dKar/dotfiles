@@ -32,6 +32,11 @@ export default () => {
     return '󰁹';
   });
 
+  const infoLabelMap = {
+    [InfoState.Percentage]: <label>{percentage(percentage => `${percentage}%`)}</label>,
+    [InfoState.Consumption]: <label>{energyRate(energyRate => `${energyRate}W`)}</label>
+  };
+
   const onClick = (_: any, event: Gdk.ButtonEvent): void => {
     if (event.get_button() !== Gdk.BUTTON_PRIMARY) return;
 
@@ -40,14 +45,13 @@ export default () => {
   };
 
   return (
-    <box onButtonReleased={onClick} spacing={3}>
+    <box
+      onButtonReleased={onClick}
+      onDestroy={() => batteryIcon.drop()}
+      spacing={3}
+    >
       <label>{batteryIcon()}</label>
-      <label visible={infoState(state => state === InfoState.Percentage)}>
-        {percentage(percentage => `${percentage}%`)}
-      </label>
-      <label visible={infoState(state => state === InfoState.Consumption)}>
-        {energyRate(energyRate => `${energyRate}W`)}
-      </label>
+      {infoState(state => infoLabelMap[state])}
     </box>
   );
 };
