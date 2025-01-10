@@ -3,6 +3,7 @@ import RamInfo from './elements/RamInfo';
 import CpuInfo from './elements/CpuInfo';
 import BatteryInfo from './elements/BatteryInfo';
 import WeatherInfo from './elements/WeatherInfo';
+import TimeInfo from './elements/TimeInfo';
 
 const { WindowAnchor, Exclusivity } = Astal;
 
@@ -30,6 +31,7 @@ export default (monitor: Gdk.Monitor) => {
 
         <box spacing={10}>
           <WeatherInfo/>
+          <TimeInfo/>
         </box>
       </centerbox>
     </window>
