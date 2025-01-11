@@ -9,7 +9,10 @@ cpuUtilization.poll(
     const cpuData = data.split('\n').find(line => line.trim().startsWith('cpu '))!;
     const [, userTime, , systemTime, idleTime] = cpuData.trim().split(/\s+/).map(item => parseInt(item));
 
-    const cpuUtilization = ((userTime + systemTime) - oldWorkTime) / ((userTime + systemTime + idleTime) - (oldWorkTime + oldIdleTime));
+    let cpuUtilization = ((userTime + systemTime) - oldWorkTime) / ((userTime + systemTime + idleTime) - (oldWorkTime + oldIdleTime));
+
+    if (oldWorkTime === 0 || oldIdleTime === 0) cpuUtilization = 0;
+
     oldWorkTime = userTime + systemTime;
     oldIdleTime = idleTime;
 

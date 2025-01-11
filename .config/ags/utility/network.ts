@@ -33,8 +33,8 @@ interval(
     const interfaceData = data.split('\n').find(line => line.trim().startsWith(INTERFACE))!;
     const [, downloadBytes,,,,,,,, uploadBytes] = interfaceData.trim().split(/\s+/).map(item => parseInt(item)); // bruh
 
-    downloadSpeed.set(downloadBytes - oldDownloadBytes);
-    uploadSpeed.set(uploadBytes - oldUploadBytes);
+    if (oldDownloadBytes > 0) downloadSpeed.set(downloadBytes - oldDownloadBytes);
+    if (oldUploadBytes > 0) uploadSpeed.set(uploadBytes - oldUploadBytes);
 
     oldDownloadBytes = downloadBytes;
     oldUploadBytes = uploadBytes;
