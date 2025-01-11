@@ -1,4 +1,4 @@
-import { App } from 'astal/gtk4';
+import { App } from 'astal/gtk3';
 import style from './style.scss';
 import TopBar from './widgets/topbar/TopBar';
 

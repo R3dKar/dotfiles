@@ -1,10 +1,25 @@
 import { battery } from '@/utility/battery';
 import { Variable } from 'astal';
-import { Gdk } from 'astal/gtk4';
 
 enum BatteryInfoState {
   Percentage,
   Consumption
+};
+
+const PrecentageInfo = () => {
+  return (
+    <label>
+      {battery(({ percentage }) => `${percentage}%`)}
+    </label>
+  );
+};
+
+const ConsumptionInfo = () => {
+  return (
+    <label>
+      {battery(({ energyRate }) => `${energyRate.toFixed()}W`)}
+    </label>
+  );
 };
 
 export default () => {
@@ -16,25 +31,23 @@ export default () => {
     return '󰁹';
   });
 
-  const infoLabelMap = {
-    [BatteryInfoState.Percentage]: <label>{battery(({ percentage }) => `${percentage}%`)}</label>,
-    [BatteryInfoState.Consumption]: <label>{battery(({ energyRate }) => `${energyRate.toFixed()}W`)}</label>
-  };
-
-  const onClick = (_: any, event: Gdk.ButtonEvent): void => {
-    if (event.get_button() !== Gdk.BUTTON_PRIMARY) return;
-
-    if (infoState.get() === BatteryInfoState.Percentage) infoState.set(BatteryInfoState.Consumption);
-    else infoState.set(BatteryInfoState.Percentage);
+  const onClick = () => {
+    infoState.set((infoState.get() + 1) % (Object.keys(BatteryInfoState).length / 2));
   };
 
   return (
-    <box
-      onButtonReleased={onClick}
-      spacing={3}
-    >
-      <label>{batteryIconBind}</label>
-      {infoState(state => infoLabelMap[state])}
-    </box>
+    <eventbox onClickRelease={onClick}>
+      <box spacing={3}>
+        <label>{batteryIconBind}</label>
+        {infoState(state => {
+          switch (state) {
+            case BatteryInfoState.Percentage:
+              return <PrecentageInfo/>;
+            case BatteryInfoState.Consumption:
+              return <ConsumptionInfo/>;
+          }
+        })}
+      </box>
+    </eventbox>
   );
 };
