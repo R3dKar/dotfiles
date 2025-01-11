@@ -20,7 +20,7 @@ export const fetchJsonAsync = async (url: string, retryTimeout: number = 10*1000
   return JSON.parse(response);
 };
 
-const device = Variable<string | undefined>(undefined);
+export const device = Variable<string | undefined>(undefined);
 interval(
   1000,
   async () => {
