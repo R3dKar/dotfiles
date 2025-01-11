@@ -30,7 +30,7 @@ const updateWeather = async () => {
 
   if (previousLocation.status === ServiceStatus.Unavailable) return;
 
-  let { latitude, longitude } = previousLocation;
+  const { latitude, longitude } = previousLocation;
 
   try {
     const data = await fetchJsonAsync(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=ru&appid=${env.WEATHER_API_KEY}`, 10*1000, 10);
