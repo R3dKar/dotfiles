@@ -5,7 +5,7 @@ export default () => {
   const weatherLabelBind = weather(weather => {
     if (weather.status === ServiceStatus.Unavailable) return '???';
 
-    return `${Math.round(weather.temperature.feel)}°C`;
+    return `${weather.temperature.feel.toFixed()}°C`;
   });
 
   return (
