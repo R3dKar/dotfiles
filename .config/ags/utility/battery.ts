@@ -5,7 +5,10 @@ const POWER_DEVICE = 'BAT0';
 const percentage = Variable(100);
 percentage.poll(
   1000,
-  async () => parseInt(await readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/capacity`))
+  async () => {
+    const data = await readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/capacity`);
+    return Math.min(100, parseInt(data));
+  }
 );
 
 const isCharging = Variable(false);
