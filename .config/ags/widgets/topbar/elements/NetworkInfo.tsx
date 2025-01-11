@@ -25,20 +25,28 @@ export default () => {
   const speedState = Variable(NetworkSpeedState.Download);
 
   const speedStateLabelMap = {
-    [NetworkSpeedState.Download]: <label visible={availableBind}>
-      {network(network => {
-        if (network.status === ServiceStatus.Unavailable) return '';
-        const [downloadSpeed, prefix] = convertWithPrefix(network.speed.download);
-        return ` ${downloadSpeed.toFixed()} ${prefix}B/s`;
-      })}
-    </label>,
-    [NetworkSpeedState.Upload]: <label visible={availableBind}>
-      {network(network => {
-        if (network.status === ServiceStatus.Unavailable) return '';
-        const [uploadSpeed, prefix] = convertWithPrefix(network.speed.upload);
-        return ` ${uploadSpeed.toFixed()} ${prefix}B/s`;
-      })}
-    </label>
+    [NetworkSpeedState.Download]:
+    <box visible={availableBind} spacing={3}>
+      <label></label>
+      <label>
+        {network(network => {
+          if (network.status === ServiceStatus.Unavailable) return '';
+          const [downloadSpeed, prefix] = convertWithPrefix(network.speed.download);
+          return `${downloadSpeed.toFixed()} ${prefix}B/s`;
+        })}
+      </label>
+    </box>,
+    [NetworkSpeedState.Upload]:
+    <box visible={availableBind} spacing={3}>
+      <label></label>
+      <label>
+        {network(network => {
+          if (network.status === ServiceStatus.Unavailable) return '';
+          const [uploadSpeed, prefix] = convertWithPrefix(network.speed.upload);
+          return `${uploadSpeed.toFixed()} ${prefix}B/s`;
+        })}
+      </label>
+    </box>
   };
 
   const onClick = (_: any, event: Gdk.ButtonEvent): void => {
