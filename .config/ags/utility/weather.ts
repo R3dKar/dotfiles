@@ -1,4 +1,4 @@
-import { Variable } from 'astal';
+import { interval, Variable } from 'astal';
 import { ServiceData, ServiceStatus } from './service';
 import { location } from './location';
 import { fetchJsonAsync } from './network';
@@ -25,11 +25,10 @@ export type WeatherData = ServiceData<Weather>;
 
 export const weather = Variable<WeatherData>({ status: ServiceStatus.Unavailable });
 
-const updateWeather = async (): Promise<WeatherData> => {
+const updateWeather = async () => {
   const previousLocation = location.get();
-  const previousWeather = weather.get();
 
-  if (previousLocation.status === ServiceStatus.Unavailable) return previousWeather;
+  if (previousLocation.status === ServiceStatus.Unavailable) return;
 
   let { latitude, longitude } = previousLocation;
 
@@ -59,17 +58,15 @@ const updateWeather = async (): Promise<WeatherData> => {
       statuses.some(status => status in ['781', '762', '622', '602', '522', '504', '503', '502', '314', '312', '302', '232', '212', '202'])
     ;
 
-    return {
+    weather.set({
       status: ServiceStatus.Available,
       temperature,
       precipitation,
       clouds: data.clouds.all,
       death
-    };
-  } catch {
-    return previousWeather;
-  }
+    });
+  } catch {}
 };
 
-weather.poll(10*60*1000, updateWeather);
-location.subscribe(async () => weather.set(await updateWeather()));
+interval(10*60*1000, updateWeather);
+location.subscribe(updateWeather);
