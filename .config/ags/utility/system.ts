@@ -1,16 +1,26 @@
-import { Variable } from 'astal';
+import { readFileAsync, Variable } from 'astal';
 
+let oldWorkTime = 0, oldIdleTime = 0;
 const cpuUtilization = Variable(0);
 cpuUtilization.poll(
   1000,
-  ['zsh', '-c', "awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1) }' <(grep 'cpu ' /proc/stat) <(sleep 1;grep 'cpu ' /proc/stat)"],
-  (data: string) => parseFloat(data)
+  async () => {
+    const data = await readFileAsync('/proc/stat');
+    const cpuData = data.split('\n').find(line => line.startsWith('cpu '))!;
+    const [, userTime, , systemTime, idleTime] = cpuData.split(/\s+/).map(item => parseInt(item));
+
+    const cpuUtilization = ((userTime + systemTime) - oldWorkTime) / ((userTime + systemTime + idleTime) - (oldWorkTime + oldIdleTime));
+    oldWorkTime = userTime + systemTime;
+    oldIdleTime = idleTime;
+
+    return cpuUtilization * 100;
+  }
 );
 
 const ramUtilization = Variable(0);
 ramUtilization.poll(
   1000,
-  ['zsh', '-c', "free | grep Mem | awk '{print $3/$2*100}'"],
+  ['zsh', '-c', "free | grep Mem | awk '{print $3/$2*100.0}'"],
   (data: string) => parseFloat(data)
 );
 

@@ -1,26 +1,33 @@
-import { Variable } from 'astal';
+import { readFile, readFileAsync, Variable } from 'astal';
 
 const POWER_DEVICE = 'BAT0';
 
 const percentage = Variable(100);
 percentage.poll(
   1000,
-  `cat /sys/class/power_supply/${POWER_DEVICE}/capacity`,
-  (data: string) => parseInt(data)
+  async () => parseInt(await readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/capacity`))
 );
 
 const isCharging = Variable(false);
 isCharging.poll(
   1000,
-  `cat /sys/class/power_supply/${POWER_DEVICE}/status`,
-  (data: string) => data !== 'Discharging'
+  async () => {
+    const data = await readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/status`);
+    return data.trim() !== 'Discharging';
+  }
 );
 
 const energyRate = Variable(0);
 energyRate.poll(
   1000,
-  ['zsh', '-c', `echo $(( $(cat /sys/class/power_supply/${POWER_DEVICE}/voltage_now) * $(cat /sys/class/power_supply/${POWER_DEVICE}/current_now) / 1000000000000 ))`],
-  (data: string) => parseInt(data)
+  async () => {
+    const [voltage, current] = await Promise.all([
+      readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/voltage_now`),
+      readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/current_now`)
+    ]);
+
+    return parseInt(voltage) * parseInt(current) / 1e12;
+  }
 );
 
 

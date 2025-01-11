@@ -18,7 +18,7 @@ export default () => {
 
   const infoLabelMap = {
     [BatteryInfoState.Percentage]: <label>{battery(({ percentage }) => `${percentage}%`)}</label>,
-    [BatteryInfoState.Consumption]: <label>{battery(({ energyRate }) => `${energyRate}W`)}</label>
+    [BatteryInfoState.Consumption]: <label>{battery(({ energyRate }) => `${Math.round(energyRate)}W`)}</label>
   };
 
   const onClick = (_: any, event: Gdk.ButtonEvent): void => {
