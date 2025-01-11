@@ -24,7 +24,7 @@ export default () => {
   const onClick = (_: any, event: Gdk.ButtonEvent): void => {
     if (event.get_button() !== Gdk.BUTTON_PRIMARY) return;
 
-    if (infoState.get() === BatteryInfoState.Percentage) infoState.set(BatteryInfoState.Consumption)
+    if (infoState.get() === BatteryInfoState.Percentage) infoState.set(BatteryInfoState.Consumption);
     else infoState.set(BatteryInfoState.Percentage);
   };
 

@@ -50,7 +50,7 @@ export default () => {
   const onClick = (_: any, event: Gdk.ButtonEvent): void => {
     if (event.get_button() !== Gdk.BUTTON_PRIMARY) return;
 
-    if (temperatureState.get() === WeatherTemperatureState.Real) temperatureState.set(WeatherTemperatureState.Feel)
+    if (temperatureState.get() === WeatherTemperatureState.Real) temperatureState.set(WeatherTemperatureState.Feel);
     else temperatureState.set(WeatherTemperatureState.Real);
   };
 

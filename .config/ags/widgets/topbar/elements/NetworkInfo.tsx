@@ -44,7 +44,7 @@ export default () => {
   const onClick = (_: any, event: Gdk.ButtonEvent): void => {
     if (event.get_button() !== Gdk.BUTTON_PRIMARY) return;
 
-    if (speedState.get() === NetworkSpeedState.Download) speedState.set(NetworkSpeedState.Upload)
+    if (speedState.get() === NetworkSpeedState.Download) speedState.set(NetworkSpeedState.Upload);
     else speedState.set(NetworkSpeedState.Download);
   };
 
