@@ -1,3 +1,4 @@
+import { location } from '@/utility/location';
 import { ServiceStatus } from '@/utility/service';
 import { Precipitation, weather } from '@/utility/weather';
 import { Variable } from 'astal';
@@ -10,6 +11,12 @@ enum WeatherTemperatureState {
 
 export default () => {
   const availableBind = weather(({ status }) => status === ServiceStatus.Available);
+
+  const cityBind = location(location => {
+    if (location.status === ServiceStatus.Unavailable) return '';
+
+    return location.city;
+  });
 
   const weatherIconBind = weather(weather => {
     if (weather.status === ServiceStatus.Unavailable) return '';
@@ -59,6 +66,8 @@ export default () => {
     <box
       onButtonReleased={onClick}
       visible={availableBind}
+      hasTooltip={location(({ status }) => status === ServiceStatus.Available)}
+      tooltipText={cityBind}
     >
       <label>{weatherIconBind}</label>
       {temperatureState(state => temperatureStateLabelMap[state])}
