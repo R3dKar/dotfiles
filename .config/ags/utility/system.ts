@@ -6,8 +6,8 @@ cpuUtilization.poll(
   1000,
   async () => {
     const data = await readFileAsync('/proc/stat');
-    const cpuData = data.split('\n').find(line => line.startsWith('cpu '))!;
-    const [, userTime, , systemTime, idleTime] = cpuData.split(/\s+/).map(item => parseInt(item));
+    const cpuData = data.split('\n').find(line => line.trim().startsWith('cpu '))!;
+    const [, userTime, , systemTime, idleTime] = cpuData.trim().split(/\s+/).map(item => parseInt(item));
 
     const cpuUtilization = ((userTime + systemTime) - oldWorkTime) / ((userTime + systemTime + idleTime) - (oldWorkTime + oldIdleTime));
     oldWorkTime = userTime + systemTime;

@@ -4,6 +4,7 @@ import CpuInfo from './elements/CpuInfo';
 import BatteryInfo from './elements/BatteryInfo';
 import WeatherInfo from './elements/WeatherInfo';
 import TimeInfo from './elements/TimeInfo';
+import NetworkInfo from './elements/NetworkInfo';
 
 const { WindowAnchor, Exclusivity } = Astal;
 
@@ -25,6 +26,7 @@ export default (monitor: Gdk.Monitor) => {
           <BatteryInfo/>
           <CpuInfo/>
           <RamInfo/>
+          <NetworkInfo/>
         </box>
 
         <box/>
