@@ -1,12 +1,20 @@
 import { convertWithPrefix } from "@/utility/misc";
 import { network } from "@/utility/network";
 import { ServiceStatus } from "@/utility/service";
-import { Variable } from "astal";
+import { bind, Variable, Gio } from "astal";
+import { Astal, Gdk, Gtk } from "astal/gtk3";
+import Tray from 'gi://AstalTray';
 
 enum NetworkSpeedState {
   Download,
   Upload
 };
+
+const tray = Tray.get_default();
+const appletTrayItem: Variable<Tray.TrayItem | undefined> = Variable.derive(
+  [bind(tray, 'items')],
+  (items) => items.find(item => item.id === 'nm-applet')
+);
 
 const availableBind = network(({ status }) => status === ServiceStatus.Available);
 
@@ -55,8 +63,18 @@ export default () => {
 
   const speedState = Variable(NetworkSpeedState.Download);
 
-  const onClick = () => {
-    speedState.set((speedState.get() + 1) % (Object.keys(NetworkSpeedState).length / 2));
+  const onClick = (sender: Gtk.Widget, event: Astal.ClickEvent): void => {
+    if (event.button === Astal.MouseButton.PRIMARY)
+      speedState.set((speedState.get() + 1) % (Object.keys(NetworkSpeedState).length / 2));
+
+    if (event.button === Astal.MouseButton.SECONDARY) {
+      const applet = appletTrayItem.get();
+      if (applet === undefined) return;
+
+      const menu = Gtk.Menu.new_from_model(applet.menuModel);
+      menu.insert_action_group('dbusmenu', applet.actionGroup);
+      menu.popup_at_rect(sender.window, new Gdk.Rectangle({ height: 25 }), Gdk.Gravity.SOUTH_WEST, Gdk.Gravity.NORTH_WEST, null);
+    }
   };
 
   return (
