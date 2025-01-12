@@ -46,7 +46,7 @@ export default () => {
   const weatherIconBind = weather(weather => {
     if (weather.status === ServiceStatus.Unavailable) return '';
 
-    if (weather.death) return ' ';
+    if (weather.death) return '💀';
 
     const precipitationIconMap = {
       [Precipitation.Rain]: '',
@@ -55,9 +55,9 @@ export default () => {
     };
     if (weather.precipitation !== Precipitation.None) return precipitationIconMap[weather.precipitation];
 
-    if (weather.clouds > 25) return '󰖐 ';
+    if (weather.clouds > 25) return '󰖐';
 
-    return ' ';
+    return '';
   });
 
   const temperatureState = Variable(WeatherTemperatureState.Real);

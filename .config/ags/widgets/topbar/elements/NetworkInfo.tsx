@@ -54,8 +54,8 @@ const UploadSpeedInfo = () => {
 
 export default () => {
   const networkIconBind = network(({ status }) => {
-    if (status === ServiceStatus.Unavailable) return '󱐅 ';
-    return '󰇧 ';
+    if (status === ServiceStatus.Unavailable) return '󱐅';
+    return '󰇧';
   });
 
   const deviceBind = network(network => {

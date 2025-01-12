@@ -7,7 +7,7 @@ export default () => {
 
   return (
     <box spacing={3}>
-      <Icon icon=' '/>
+      <Icon icon=''/>
       <label>{ramLabelBind}</label>
     </box>
   );
