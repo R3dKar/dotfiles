@@ -28,7 +28,7 @@ const FeelTemperatureInfo = () => {
       {weather(weather => {
         if (weather.status === ServiceStatus.Unavailable) return '';
 
-        return `󰾞${weather.temperature.feel.toFixed()}°C`;
+        return `≈${weather.temperature.feel.toFixed()}°C`;
       })}
     </label>
   );
