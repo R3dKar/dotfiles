@@ -1,6 +1,7 @@
 import { convertWithPrefix } from "@/utility/misc";
 import { network } from "@/utility/network";
 import { ServiceStatus } from "@/utility/service";
+import Icon from "@/widgets/icon/Icon";
 import { bind, Variable, Gio } from "astal";
 import { Astal, Gdk, Gtk } from "astal/gtk3";
 import Tray from 'gi://AstalTray';
@@ -19,33 +20,33 @@ const appletTrayItem: Variable<Tray.TrayItem | undefined> = Variable.derive(
 const availableBind = network(({ status }) => status === ServiceStatus.Available);
 
 const DownloadSpeedInfo = () => {
+  const speedBind = network(network => {
+    if (network.status === ServiceStatus.Unavailable) return '';
+
+    const [downloadSpeed, prefix] = convertWithPrefix(network.speed.download);
+    return `${downloadSpeed.toFixed()} ${prefix}B/s`;
+  });
+
   return (
     <box visible={availableBind} spacing={3}>
-      <label></label>
-      <label>
-        {network(network => {
-          if (network.status === ServiceStatus.Unavailable) return '';
-
-          const [downloadSpeed, prefix] = convertWithPrefix(network.speed.download);
-          return `${downloadSpeed.toFixed()} ${prefix}B/s`;
-        })}
-      </label>
+      <Icon icon=''/>
+      <label>{speedBind}</label>
     </box>
   );
 };
 
 const UploadSpeedInfo = () => {
+  const speedBind = network(network => {
+    if (network.status === ServiceStatus.Unavailable) return '';
+
+    const [uploadSpeed, prefix] = convertWithPrefix(network.speed.upload);
+    return `${uploadSpeed.toFixed()} ${prefix}B/s`;
+  });
+
   return (
     <box visible={availableBind} spacing={3}>
-      <label></label>
-      <label>
-        {network(network => {
-          if (network.status === ServiceStatus.Unavailable) return '';
-
-          const [uploadSpeed, prefix] = convertWithPrefix(network.speed.upload);
-          return `${uploadSpeed.toFixed()} ${prefix}B/s`;
-        })}
-      </label>
+      <Icon icon=''/>
+      <label>{speedBind}</label>
     </box>
   );
 };
@@ -80,7 +81,7 @@ export default () => {
   return (
     <eventbox onClickRelease={onClick}>
       <box spacing={3}>
-        <label>{networkIconBind}</label>
+        <Icon icon={networkIconBind}/>
         <label visible={availableBind}>{deviceBind}</label>
         {speedState(state => {
           switch (state) {

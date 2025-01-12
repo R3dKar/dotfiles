@@ -1,6 +1,8 @@
 import { battery } from '@/utility/battery';
 import { Variable } from 'astal';
 
+import Icon from '@/widgets/icon/Icon';
+
 enum BatteryInfoState {
   Percentage,
   Consumption
@@ -25,7 +27,7 @@ const ConsumptionInfo = () => {
 export default () => {
   const infoState = Variable(BatteryInfoState.Percentage);
 
-  const batteryIconBind = battery(({ percentage, isCharging}) => {
+  const batteryIconBind = battery(({ percentage, isCharging }) => {
     if (isCharging) return '󰂄';
     if (percentage <= 0.25) return '󰂃';
     return '󰁹';
@@ -38,7 +40,7 @@ export default () => {
   return (
     <eventbox onClickRelease={onClick}>
       <box spacing={3}>
-        <label>{batteryIconBind}</label>
+        <Icon icon={batteryIconBind}/>
         {infoState(state => {
           switch (state) {
             case BatteryInfoState.Percentage:

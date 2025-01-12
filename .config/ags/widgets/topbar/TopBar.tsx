@@ -1,4 +1,5 @@
 import { App, Gdk, Astal, Gtk } from 'astal/gtk3';
+
 import RamInfo from './elements/RamInfo';
 import CpuInfo from './elements/CpuInfo';
 import BatteryInfo from './elements/BatteryInfo';
@@ -19,10 +20,7 @@ export default (monitor: Gdk.Monitor) => {
       exclusivity={Exclusivity.EXCLUSIVE}
       anchor={WindowAnchor.TOP | WindowAnchor.LEFT | WindowAnchor.RIGHT}
     >
-      <centerbox
-        className='topbar__container'
-        hexpand
-      >
+      <centerbox className='topbar__container' hexpand>
         <box halign={Gtk.Align.START} spacing={10}>
           <BatteryInfo/>
           <CpuInfo/>

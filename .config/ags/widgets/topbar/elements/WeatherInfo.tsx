@@ -1,6 +1,7 @@
 import { location } from '@/utility/location';
 import { ServiceStatus } from '@/utility/service';
 import { Precipitation, weather } from '@/utility/weather';
+import Icon from '@/widgets/icon/Icon';
 import { Variable } from 'astal';
 
 enum WeatherTemperatureState {
@@ -72,7 +73,7 @@ export default () => {
       tooltipText={cityBind}
     >
       <box spacing={3}>
-        <label>{weatherIconBind}</label>
+        <Icon icon={weatherIconBind}/>
         {temperatureState(state => {
           switch (state) {
             case WeatherTemperatureState.Real:
