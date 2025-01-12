@@ -1,6 +1,6 @@
-import Tray from 'gi://AstalTray';
 import { bind } from 'astal';
 import { Astal, Gdk, Gtk } from 'astal/gtk3';
+import Tray from 'gi://AstalTray';
 
 const tray = Tray.get_default();
 

@@ -1,8 +1,9 @@
 import { location } from '@/utility/location';
 import { ServiceStatus } from '@/utility/service';
 import { Precipitation, weather } from '@/utility/weather';
-import Icon from '@/widgets/icon/Icon';
 import { Variable } from 'astal';
+
+import Icon from '@/widgets/icon/Icon';
 
 enum WeatherTemperatureState {
   Real,

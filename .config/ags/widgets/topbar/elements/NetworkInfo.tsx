@@ -1,10 +1,11 @@
-import { convertWithPrefix } from "@/utility/misc";
-import { network } from "@/utility/network";
-import { ServiceStatus } from "@/utility/service";
-import Icon from "@/widgets/icon/Icon";
-import { bind, Variable, Gio } from "astal";
-import { Astal, Gdk, Gtk } from "astal/gtk3";
+import { convertWithPrefix } from '@/utility/misc';
+import { network } from '@/utility/network';
+import { ServiceStatus } from '@/utility/service';
+import { bind, Variable } from 'astal';
+import { Astal, Gdk, Gtk } from 'astal/gtk3';
 import Tray from 'gi://AstalTray';
+
+import Icon from '@/widgets/icon/Icon';
 
 enum NetworkSpeedState {
   Download,
