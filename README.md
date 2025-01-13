@@ -1,3 +1,7 @@
+# Hyprland dotfiles (WIP)
+
+![Screenshot](/screenshots/screenshot.png)
+
 # Installation
 
 ```bash
@@ -7,5 +11,4 @@ yay -S zsh hyprland noto-fonts noto-fonts-emoji ttf-nerd-fonts-symbols ttf-nerd-
 # Initialization
 stow -Rvt ~ dotfiles
 sudo systemctl enable --now bluetooth
-systemctl enable --now --user hyprpolkitagent
 ```
