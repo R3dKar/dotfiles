@@ -3,7 +3,10 @@
   "logo": {
     "source": "~/.config/fastfetch/logo.jpg",
     "type": "sixel",
-    "height": 10
+    "height": 8,
+    "padding": {
+      "left": 1
+    }
   },
   "display": {
     "separator": "  ",
