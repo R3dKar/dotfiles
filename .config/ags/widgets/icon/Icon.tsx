@@ -1,21 +1,17 @@
 import { Binding } from 'astal';
-import style from './style.scss';
+import { bindify } from '@/utility/misc';
 
 export interface IconProps {
-  icon: string | Binding<string>
+  icon: string | Binding<string>,
+  size?: number | Binding<number>
 };
 
-export default ({ icon }: IconProps) => {
-  let trimmedIcon = icon instanceof Binding ?
-    icon.as(icon => icon.trimEnd()) :
-    icon.trimEnd()
-  ;
-
+export default ({ icon, size }: IconProps) => {
   return (
     <label
-      css={style}
+      css={size !== undefined ? bindify(size).as(size => `font-size: ${size}px`) : ''}
       className='icon'
-      label={trimmedIcon}
+      label={bindify(icon).as(icon => icon.trimEnd())}
     />
   );
 };
