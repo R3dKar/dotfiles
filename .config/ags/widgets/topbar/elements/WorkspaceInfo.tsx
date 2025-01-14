@@ -1,4 +1,4 @@
-import { Gdk } from 'astal/gtk3';
+import { Astal, Gdk } from 'astal/gtk3';
 import { bind, Binding, Variable } from 'astal';
 import { bindify, classList } from '@/utility/misc';
 import Hyprland from 'gi://AstalHyprland';
@@ -14,8 +14,10 @@ export interface WorkspaceItemProps {
 };
 
 const WorkspaceItem = ({ workspace, visible, active, empty }: WorkspaceItemProps) => {
+  const activeBind = bindify(active);
+
   const workspaceLabel = Variable.derive(
-    [bindify(active), bindify(empty)],
+    [activeBind, bindify(empty)],
     (active, empty) => {
       if (active || !empty)
         return <label>{workspace.id}</label>;
@@ -26,8 +28,13 @@ const WorkspaceItem = ({ workspace, visible, active, empty }: WorkspaceItemProps
 
   const className = classList({
     'workspace': true,
-    'workspace_active': active
+    'workspace_active': activeBind
   });
+
+  const onClick = (_: unknown, event: Astal.ClickEvent) => {
+    if (event.button === Astal.MouseButton.PRIMARY && !activeBind.get())
+      workspace.focus();
+  };
 
   const onDestroy = () => {
     className.drop();
@@ -35,13 +42,15 @@ const WorkspaceItem = ({ workspace, visible, active, empty }: WorkspaceItemProps
   };
 
   return (
-    <box
+    <eventbox
       visible={visible}
       className={className()}
+      onClickRelease={onClick}
       onDestroy={onDestroy}
+      cursor='pointer'
     >
       {workspaceLabel()}
-    </box>
+    </eventbox>
   );
 };
 
