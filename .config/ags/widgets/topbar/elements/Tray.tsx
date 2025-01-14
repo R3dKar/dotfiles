@@ -24,6 +24,7 @@ const TrayItem = ({ item }: TrayItemProps) => {
     <eventbox
       onClickRelease={onClick}
       tooltipMarkup={bind(item, 'tooltipMarkup')}
+      cursor='pointer'
     >
       <icon gicon={bind(item, 'gicon')}/>
     </eventbox>

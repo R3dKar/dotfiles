@@ -51,7 +51,7 @@ export default () => {
     const precipitationIconMap = {
       [Precipitation.Rain]: '',
       [Precipitation.Thunderstorm]: '󱐋',
-      [Precipitation.Snow]: ' '
+      [Precipitation.Snow]: ''
     };
     if (weather.precipitation !== Precipitation.None) return precipitationIconMap[weather.precipitation];
 
@@ -72,6 +72,7 @@ export default () => {
       visible={availableBind}
       hasTooltip={location(({ status }) => status === ServiceStatus.Available)}
       tooltipText={cityBind}
+      cursor='pointer'
     >
       <box spacing={3}>
         <Icon icon={weatherIconBind}/>

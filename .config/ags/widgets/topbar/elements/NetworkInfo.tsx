@@ -80,7 +80,7 @@ export default () => {
   };
 
   return (
-    <eventbox onClickRelease={onClick}>
+    <eventbox onClickRelease={onClick} cursor='pointer'>
       <box spacing={3}>
         <Icon icon={networkIconBind}/>
         <label visible={availableBind}>{deviceBind}</label>
