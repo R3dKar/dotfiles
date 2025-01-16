@@ -6,7 +6,7 @@
 
 ```bash
 # Dependencies
-yay -S zsh hyprland noto-fonts noto-fonts-emoji ttf-nerd-fonts-symbols \
+yay -S zsh hyprland cpio noto-fonts noto-fonts-emoji ttf-nerd-fonts-symbols \
 ttf-nerd-fonts-symbols-mono ttf-meslo-nerd zsh-theme-powerlevel10k-git \
 alacritty-sixel-git lisixel imagemagick btop stow nvidia-dkms libva-nvidia-driver \
 aylurs-gtk-shell-git libastal-io-git libastal-git pipewire pipewire-audio \
@@ -17,4 +17,7 @@ cliphist yandex-browser code fastfetch cava
 # Initialization
 stow -Rvt ~ dotfiles
 sudo systemctl enable --now bluetooth
+hyprpm update
+hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
+hyprpm enable dynamic-cursors
 ```
