@@ -8,6 +8,7 @@ import TimeInfo from './elements/TimeInfo';
 import NetworkInfo from './elements/NetworkInfo';
 import Tray from './elements/Tray';
 import WorkspaceInfo from './elements/WorkspaceInfo';
+import LayoutInfo from './elements/LayoutInfo';
 
 const { WindowAnchor, Exclusivity } = Astal;
 
@@ -36,6 +37,7 @@ export default (monitor: Gdk.Monitor) => {
         <box halign={Gtk.Align.END} spacing={10}>
           <Tray/>
           <WeatherInfo/>
+          <LayoutInfo/>
           <TimeInfo/>
         </box>
       </centerbox>

@@ -1,4 +1,5 @@
-import { readFileAsync, Variable } from 'astal';
+import { execAsync, readFileAsync, Variable } from 'astal';
+import Hyprland from 'gi://AstalHyprland';
 
 let oldWorkTime = 0, oldIdleTime = 0;
 const cpuUtilization = Variable(0);
@@ -27,12 +28,19 @@ ramUtilization.poll(
   (data: string) => parseFloat(data)
 );
 
+const systemLayout = Variable('');
+Hyprland.get_default().connect('keyboard-layout', (_, __, layout) => systemLayout.set(layout));
+execAsync(
+  ['zsh', '-c', 'hyprctl devices -j | jq ".keyboards[] | select(.main) | .active_keymap"']
+).then(layout => systemLayout.set(layout.replaceAll('"', '')));
+
 export interface SystemData {
   cpuUtilization: number,
-  ramUtilization: number
+  ramUtilization: number,
+  systemLayout: string
 };
 
 export const system: Variable<SystemData> = Variable.derive(
-  [cpuUtilization, ramUtilization],
-  (cpuUtilization, ramUtilization) => ({ cpuUtilization, ramUtilization })
+  [cpuUtilization, ramUtilization, systemLayout],
+  (cpuUtilization, ramUtilization, systemLayout) => ({ cpuUtilization, ramUtilization, systemLayout })
 );
