@@ -14,3 +14,7 @@ alias ipa="ip a"
 alias ipr="ip r"
 
 alias neofetch="fastfetch"
+
+function runbg {
+  $@ &>/dev/null & disown
+}
