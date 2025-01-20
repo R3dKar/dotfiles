@@ -1,5 +1,5 @@
-@use './widgets/topbar/TopBar.scss';
-@use './widgets/icon/Icon.scss';
+@use './widgets/topbar/style.scss' as topbar;
+@use './widgets/icon/style.scss' as icon;
 
 * {
   font-family: 'Noto Sans', sans-serif;
