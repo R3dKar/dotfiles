@@ -1,4 +1,4 @@
-import { system } from '@/utility/system';
+import { system } from '@/services/system';
 
 import Icon from '@/widgets/icon/Icon';
 

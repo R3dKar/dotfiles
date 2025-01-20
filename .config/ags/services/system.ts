@@ -1,10 +1,12 @@
 import { execAsync, readFileAsync, Variable } from 'astal';
 import Hyprland from 'gi://AstalHyprland';
 
+const POLLING_INTERVAL = 1000;
+
 let oldWorkTime = 0, oldIdleTime = 0;
-const cpuUtilization = Variable(0);
+export const cpuUtilization = Variable(0);
 cpuUtilization.poll(
-  1000,
+  POLLING_INTERVAL,
   async () => {
     const data = await readFileAsync('/proc/stat');
     const cpuData = data.split('\n').find(line => line.trim().startsWith('cpu '))!;
@@ -21,18 +23,18 @@ cpuUtilization.poll(
   }
 );
 
-const ramUtilization = Variable(0);
+export const ramUtilization = Variable(0);
 ramUtilization.poll(
-  1000,
+  POLLING_INTERVAL,
   ['zsh', '-c', "free | grep Mem | awk '{print $3/$2*100.0}'"],
   (data: string) => parseFloat(data)
 );
 
-const systemLayout = Variable('');
+export const systemLayout = Variable('');
 Hyprland.get_default().connect('keyboard-layout', (_, __, layout) => systemLayout.set(layout));
-execAsync(
-  ['zsh', '-c', 'hyprctl devices -j | jq ".keyboards[] | select(.main) | .active_keymap"']
-).then(layout => systemLayout.set(layout.replaceAll('"', '')));
+execAsync(['zsh', '-c', 'hyprctl devices -j | jq ".keyboards[] | select(.main) | .active_keymap"'])
+  .then(layout => systemLayout.set(layout.replaceAll('"', '')));
+
 
 export interface SystemData {
   cpuUtilization: number,

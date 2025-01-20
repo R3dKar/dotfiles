@@ -1,8 +1,10 @@
 import { interval, Variable } from 'astal';
 import { ServiceData, ServiceStatus } from './service';
 import { location } from './location';
-import { fetchJsonAsync } from './network';
-import { env } from './environment';
+import { env } from '@/utility/environment';
+import { fetchJsonAsync } from '@/utility/network';
+
+const POLLING_INTERVAL = 10*60*1000;
 
 export enum Precipitation {
   None,
@@ -66,5 +68,5 @@ const updateWeather = async () => {
   } catch {}
 };
 
-interval(10*60*1000, updateWeather);
+interval(POLLING_INTERVAL, updateWeather);
 location.subscribe(updateWeather);

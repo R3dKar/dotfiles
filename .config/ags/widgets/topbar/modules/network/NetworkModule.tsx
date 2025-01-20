@@ -1,6 +1,6 @@
 import { convertWithPrefix } from '@/utility/misc';
-import { network } from '@/utility/network';
-import { ServiceStatus } from '@/utility/service';
+import { network } from '@/services/network';
+import { ServiceStatus } from '@/services/service';
 import { bind, Variable } from 'astal';
 import { Astal, Gdk, Gtk } from 'astal/gtk3';
 import Tray from 'gi://AstalTray';

@@ -1,4 +1,4 @@
-import { system } from '@/utility/system';
+import { system } from '@/services/system';
 import { execAsync } from 'astal';
 
 import Icon from '@/widgets/icon/Icon';

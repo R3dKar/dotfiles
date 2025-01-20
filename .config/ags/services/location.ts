@@ -1,6 +1,10 @@
 import { interval, Variable } from 'astal';
-import { device, fetchJsonAsync } from './network';
+import { device } from './network';
 import { ServiceData, ServiceStatus } from './service';
+import { fetchJsonAsync } from '@/utility/network';
+
+const POLLING_INTERVAL = 10*60*1000;
+
 
 export interface Location {
   city: string,
@@ -25,7 +29,7 @@ const updateLocation = async () => {
   } catch {}
 };
 
-interval(10*60*1000, updateLocation);
+interval(POLLING_INTERVAL, updateLocation);
 device.subscribe(
   async device => {
     if (device === undefined) return;

@@ -1,6 +1,6 @@
-import { location } from '@/utility/location';
-import { ServiceStatus } from '@/utility/service';
-import { Precipitation, weather } from '@/utility/weather';
+import { location } from '@/services/location';
+import { ServiceStatus } from '@/services/service';
+import { Precipitation, weather } from '@/services/weather';
 import { Variable } from 'astal';
 
 import Icon from '@/widgets/icon/Icon';

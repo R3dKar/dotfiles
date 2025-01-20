@@ -1,28 +1,29 @@
-import { readFile, readFileAsync, Variable } from 'astal';
+import { readFileAsync, Variable } from 'astal';
 
 const POWER_DEVICE = 'BAT0';
+const POLLING_INTERVAL = 1000;
 
-const percentage = Variable(100);
+export const percentage = Variable(100);
 percentage.poll(
-  1000,
+  POLLING_INTERVAL,
   async () => {
     const data = await readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/capacity`);
     return Math.min(100, parseInt(data));
   }
 );
 
-const isCharging = Variable(false);
+export const isCharging = Variable(false);
 isCharging.poll(
-  1000,
+  POLLING_INTERVAL,
   async () => {
     const data = await readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/status`);
     return data.trim() !== 'Discharging';
   }
 );
 
-const energyRate = Variable(0);
+export const energyRate = Variable(0);
 energyRate.poll(
-  1000,
+  POLLING_INTERVAL,
   async () => {
     const [voltage, current] = await Promise.all([
       readFileAsync(`/sys/class/power_supply/${POWER_DEVICE}/voltage_now`),

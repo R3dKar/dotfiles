@@ -1,5 +1,5 @@
+import { bindify } from '@/utility/binding';
 import { Binding } from 'astal';
-import { bindify } from '@/utility/misc';
 
 export interface IconProps {
   icon: string | Binding<string>,

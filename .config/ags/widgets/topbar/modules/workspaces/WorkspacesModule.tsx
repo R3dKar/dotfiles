@@ -1,7 +1,8 @@
 import { Astal, Gdk } from 'astal/gtk3';
 import { bind, Binding, Variable } from 'astal';
-import { bindify, classList } from '@/utility/misc';
+import { bindify, classList } from '@/utility/binding';
 import Hyprland from 'gi://AstalHyprland';
+
 import Icon from '@/widgets/icon/Icon';
 
 const hyprland = Hyprland.get_default();

@@ -1,4 +1,4 @@
-import { battery } from '@/utility/battery';
+import { battery } from '@/services/battery';
 import { Variable } from 'astal';
 
 import Icon from '@/widgets/icon/Icon';

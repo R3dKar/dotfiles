@@ -1,14 +1,14 @@
 import { App, Gdk, Astal, Gtk } from 'astal/gtk3';
 
-import RamInfo from './elements/RamInfo';
-import CpuInfo from './elements/CpuInfo';
-import BatteryInfo from './elements/BatteryInfo';
-import WeatherInfo from './elements/WeatherInfo';
-import TimeInfo from './elements/TimeInfo';
-import NetworkInfo from './elements/NetworkInfo';
-import Tray from './elements/Tray';
-import WorkspaceInfo from './elements/WorkspaceInfo';
-import LayoutInfo from './elements/LayoutInfo';
+import RamInfo from './modules/ram/RamModule';
+import CpuInfo from './modules/cpu/CpuModule';
+import BatteryInfo from './modules/battery/BatteryModule';
+import WeatherInfo from './modules/weather/WeatherModule';
+import TimeInfo from './modules/time/TimeModule';
+import NetworkInfo from './modules/network/NetworkModule';
+import Tray from './modules/tray/TrayModule';
+import WorkspaceInfo from './modules/workspaces/WorkspacesModule';
+import LayoutInfo from './modules/layout/LayoutModule';
 
 const { WindowAnchor, Exclusivity } = Astal;
 
