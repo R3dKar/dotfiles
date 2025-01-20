@@ -1,9 +1,9 @@
-import { system } from '@/services/system';
+import { cpuUtilization } from '@/services/system';
 
 import Icon from '@/widgets/icon/Icon';
 
 export default () => {
-  const cpuLabelBind = system(({ cpuUtilization }) => `${cpuUtilization.toFixed()}%`);
+  const cpuLabelBind = cpuUtilization(cpuUtilization => `${cpuUtilization.toFixed()}%`);
 
   return (
     <box spacing={3}>

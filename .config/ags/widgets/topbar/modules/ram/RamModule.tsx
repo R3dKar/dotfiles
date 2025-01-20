@@ -1,9 +1,9 @@
-import { system } from '@/services/system';
+import { ramUtilization } from '@/services/system';
 
 import Icon from '@/widgets/icon/Icon';
 
 export default () => {
-  const ramLabelBind = system(({ ramUtilization }) => `${ramUtilization.toFixed()}%`);
+  const ramLabelBind = ramUtilization(ramUtilization => `${ramUtilization.toFixed()}%`);
 
   return (
     <box spacing={3}>
