@@ -1,4 +1,4 @@
-import { Astal, Gdk } from 'astal/gtk3';
+import { Gdk } from 'astal/gtk3';
 import { bind, Binding, Variable } from 'astal';
 import { bindify, classList } from '@/utility/binding';
 import Hyprland from 'gi://AstalHyprland';
@@ -32,9 +32,9 @@ const WorkspaceItem = ({ workspace, visible, active, empty }: WorkspaceItemProps
     'workspace_active': activeBind
   });
 
-  const onClick = (_: unknown, event: Astal.ClickEvent) => {
-    if (event.button === Astal.MouseButton.PRIMARY && !activeBind.get())
-      workspace.focus();
+  const onClick = () => {
+    if (activeBind.get()) return;
+    workspace.focus();
   };
 
   const onDestroy = () => {
