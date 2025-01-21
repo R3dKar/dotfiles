@@ -21,6 +21,7 @@ export default (monitor: Gdk.Monitor) => {
       gdkmonitor={monitor}
       application={App}
       exclusivity={Exclusivity.EXCLUSIVE}
+      namespace='topbar'
       anchor={WindowAnchor.TOP | WindowAnchor.LEFT | WindowAnchor.RIGHT}
     >
       <centerbox className='topbar__container' hexpand>
