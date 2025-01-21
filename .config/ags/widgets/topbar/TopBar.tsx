@@ -1,14 +1,15 @@
 import { App, Gdk, Astal, Gtk } from 'astal/gtk3';
 
-import RamInfo from './modules/ram/RamModule';
-import CpuInfo from './modules/cpu/CpuModule';
-import BatteryInfo from './modules/battery/BatteryModule';
-import WeatherInfo from './modules/weather/WeatherModule';
-import TimeInfo from './modules/time/TimeModule';
-import NetworkInfo from './modules/network/NetworkModule';
-import Tray from './modules/tray/TrayModule';
-import WorkspaceInfo from './modules/workspaces/WorkspacesModule';
-import LayoutInfo from './modules/layout/LayoutModule';
+import RamModule from './modules/ram/RamModule';
+import CpuModule from './modules/cpu/CpuModule';
+import BatteryModule from './modules/battery/BatteryModule';
+import WeatherModule from './modules/weather/WeatherModule';
+import TimeModule from './modules/time/TimeModule';
+import NetworkModule from './modules/network/NetworkModule';
+import TrayModule from './modules/tray/TrayModule';
+import WorkspaceModule from './modules/workspaces/WorkspacesModule';
+import LayoutModule from './modules/layout/LayoutModule';
+import AudioModule from './modules/audio/AudioModule';
 
 const { WindowAnchor, Exclusivity } = Astal;
 
@@ -24,21 +25,22 @@ export default (monitor: Gdk.Monitor) => {
     >
       <centerbox className='topbar__container' hexpand>
         <box halign={Gtk.Align.START} spacing={10}>
-          <BatteryInfo/>
-          <CpuInfo/>
-          <RamInfo/>
-          <NetworkInfo/>
+          <BatteryModule/>
+          <CpuModule/>
+          <RamModule/>
+          <NetworkModule/>
         </box>
 
         <box halign={Gtk.Align.CENTER} spacing={10}>
-          <WorkspaceInfo monitor={monitor}/>
+          <WorkspaceModule monitor={monitor}/>
         </box>
 
         <box halign={Gtk.Align.END} spacing={10}>
-          <Tray/>
-          <WeatherInfo/>
-          <LayoutInfo/>
-          <TimeInfo/>
+          <TrayModule/>
+          <WeatherModule/>
+          <AudioModule/>
+          <LayoutModule/>
+          <TimeModule/>
         </box>
       </centerbox>
     </window>
