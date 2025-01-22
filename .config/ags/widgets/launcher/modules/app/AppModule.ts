@@ -19,6 +19,18 @@ export class ApplicationOption implements Option {
 
 const apps = new Apps.Apps();
 
+const BLACKLIST = [
+  'lstopo.desktop',
+  'bvnc.desktop',
+  'qv4l2.desktop',
+  'avahi-discover.desktop',
+  'bssh.desktop',
+  'electron32.desktop',
+  'qvidcap.desktop'
+];
+
 export default (query: string): Option[] => {
-  return apps.fuzzy_query(query).map(app => new ApplicationOption(app));
+  return apps.fuzzy_query(query)
+  .filter(app => !BLACKLIST.includes(app.entry))
+  .map(app => new ApplicationOption(app));
 };
