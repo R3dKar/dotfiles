@@ -13,10 +13,8 @@ App.start({
     launcher = Launcher();
   },
   requestHandler: (request, res) => {
-    if (request === 'launcher') {
-      if (launcher?.visible) launcher?.hide();
-      else launcher?.show();
-    }
+    if (request === 'launcher' && launcher !== undefined)
+      launcher.visible = !launcher.visible;
 
     return res('');
   },
