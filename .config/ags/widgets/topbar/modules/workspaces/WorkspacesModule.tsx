@@ -8,10 +8,10 @@ import Icon from '@/widgets/icon/Icon';
 const hyprland = Hyprland.get_default();
 
 export interface WorkspaceItemProps {
-  workspace: Hyprland.Workspace,
-  visible: boolean | Binding<boolean>,
-  active: boolean | Binding<boolean>,
-  empty: boolean | Binding<boolean>
+  workspace: Hyprland.Workspace;
+  visible: boolean | Binding<boolean>;
+  active: boolean | Binding<boolean>;
+  empty: boolean | Binding<boolean>;
 };
 
 const WorkspaceItem = ({ workspace, visible, active, empty }: WorkspaceItemProps) => {

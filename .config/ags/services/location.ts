@@ -7,9 +7,9 @@ const POLLING_INTERVAL = 10*60*1000;
 
 
 export interface Location {
-  city: string,
-  latitude: number,
-  longitude: number
+  city: string;
+  latitude: number;
+  longitude: number;
 }
 
 export type LocationData = ServiceData<Location>;

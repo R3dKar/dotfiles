@@ -37,9 +37,9 @@ execAsync(['zsh', '-c', 'hyprctl devices -j | jq ".keyboards[] | select(.main) |
 
 
 export interface SystemData {
-  cpuUtilization: number,
-  ramUtilization: number,
-  systemLayout: string
+  cpuUtilization: number;
+  ramUtilization: number;
+  systemLayout: string;
 };
 
 export const system: Variable<SystemData> = Variable.derive(

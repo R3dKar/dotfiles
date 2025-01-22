@@ -60,11 +60,11 @@ device.subscribe(() => {
 
 
 export interface Network {
-  device: string,
+  device: string;
   speed: {
-    download: number,
-    upload: number
-  }
+    download: number;
+    upload: number;
+  };
 };
 
 export type NetworkData = ServiceData<Network>;

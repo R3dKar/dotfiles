@@ -12,8 +12,8 @@ enum AudioInfoState {
 };
 
 interface EndpointInfoProps {
-  endpoint: Wp.Endpoint,
-  type?: 'microphone' | 'speaker'
+  endpoint: Wp.Endpoint;
+  type?: 'microphone' | 'speaker';
 };
 
 const EndpointInfo = ({ endpoint, type }: EndpointInfoProps) => {

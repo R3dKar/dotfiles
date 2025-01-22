@@ -15,12 +15,12 @@ export enum Precipitation {
 
 export interface Weather {
   temperature: {
-    real: number,
-    feel: number
-  },
-  precipitation: Precipitation,
-  clouds: number,
-  death: boolean
+    real: number;
+    feel: number;
+  };
+  precipitation: Precipitation;
+  clouds: number;
+  death: boolean;
 };
 
 export type WeatherData = ServiceData<Weather>;

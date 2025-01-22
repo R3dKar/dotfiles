@@ -36,9 +36,9 @@ energyRate.poll(
 
 
 export interface BatteryData {
-  percentage: number,
-  isCharging: boolean,
-  energyRate: number
+  percentage: number;
+  isCharging: boolean;
+  energyRate: number;
 };
 
 export const battery: Variable<BatteryData> = Variable.derive(
