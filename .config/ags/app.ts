@@ -14,10 +14,10 @@ App.start({
   },
   requestHandler: (request, res) => {
     if (request === 'launcher') {
-      launcher?.show();
-      return res('Success');
+      if (launcher?.visible) launcher?.hide();
+      else launcher?.show();
     }
 
-    res('Unknown command');
+    //return res(undefined);
   },
 });
