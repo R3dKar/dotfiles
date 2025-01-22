@@ -1,9 +1,23 @@
-import { App } from 'astal/gtk3';
+import { App, Gtk } from 'astal/gtk3';
 import style from './style.scss';
 import TopBar from './widgets/topbar/TopBar';
+import Launcher from './widgets/launcher/Launcher';
+
+let launcher: Gtk.Widget | undefined;
 
 App.start({
-  instanceName: 'topbar',
+  instanceName: 'astal',
   css: style,
-  main: () => void App.get_monitors().map(TopBar)
+  main: () => {
+    App.get_monitors().map(TopBar);
+    launcher = Launcher();
+  },
+  requestHandler: (request, res) => {
+    if (request === 'launcher') {
+      launcher?.show();
+      return res('Success');
+    }
+
+    res('Unknown command');
+  },
 });
