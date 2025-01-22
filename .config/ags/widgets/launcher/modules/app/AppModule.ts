@@ -17,8 +17,6 @@ export class ApplicationOption implements Option {
   }
 }
 
-const apps = new Apps.Apps();
-
 const BLACKLIST = [
   'lstopo.desktop',
   'bvnc.desktop',
@@ -30,6 +28,8 @@ const BLACKLIST = [
 ];
 
 export default (query: string): Option[] => {
+  const apps = new Apps.Apps();
+
   return apps.fuzzy_query(query)
   .filter(app => !BLACKLIST.includes(app.entry))
   .map(app => new ApplicationOption(app));
