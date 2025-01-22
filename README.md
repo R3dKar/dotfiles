@@ -12,11 +12,12 @@ alacritty-sixel-git libsixel imagemagick btop stow nvidia-dkms libva-nvidia-driv
 aylurs-gtk-shell-git libastal-io-git libastal-git pipewire pipewire-audio \
 pipewire-pulse wireplumber xdg-desktop-portal-hyprland \
 hyprpolkitagent qt5-wayland qt6-wayland brightnessctl swww slurp grim \
-cliphist playerctl calc yandex-browser code fastfetch cava
+cliphist playerctl calc xdg-user-dirs yandex-browser code fastfetch cava
 
 # Initialization
 stow -Rvt ~ dotfiles
 hyprpm update
 hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
 hyprpm enable dynamic-cursors
+xdg-user-dirs-update
 ```
