@@ -12,7 +12,7 @@ alacritty-sixel-git libsixel imagemagick btop stow nvidia-dkms libva-nvidia-driv
 aylurs-gtk-shell-git libastal-io-git libastal-git pipewire pipewire-audio \
 pipewire-pulse bluez bluez-utils wireplumber xdg-desktop-portal-hyprland \
 hyprpolkitagent qt5-wayland qt6-wayland brightnessctl swww slurp grim \
-cliphist yandex-browser code fastfetch cava
+cliphist calc yandex-browser code fastfetch cava
 
 # Initialization
 stow -Rvt ~ dotfiles
