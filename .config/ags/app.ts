@@ -18,6 +18,6 @@ App.start({
       else launcher?.show();
     }
 
-    //return res(undefined);
+    return res('');
   },
 });
