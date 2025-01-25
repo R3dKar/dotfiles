@@ -52,7 +52,7 @@ export default () => {
       <box>
         <eventbox hexpand onClick={dismiss}/>
         <box vertical>
-          <eventbox heightRequest={300} onClick={dismiss}/>
+          <eventbox heightRequest={450} onClick={dismiss}/>
           <box className='launcher__box' widthRequest={500} spacing={5} vertical>
             <entry className='launcher__input' onChanged={onType} onActivate={onEnter}/>
 

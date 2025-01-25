@@ -39,7 +39,7 @@ const EndpointInfo = ({ endpoint, type }: EndpointInfoProps) => {
   const onScroll = (_: unknown, event: Astal.ScrollEvent) => {
     const CHANGE_SPEED = 0.03;
 
-    const newVolume = Math.max(0, endpoint.volume + CHANGE_SPEED*event.delta_y);
+    const newVolume = Math.max(0, endpoint.volume - CHANGE_SPEED*event.delta_y);
     endpoint.volume = newVolume;
   };
 

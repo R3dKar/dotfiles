@@ -9,7 +9,7 @@ App.start({
   instanceName: 'astal',
   css: style,
   main: () => {
-    App.get_monitors().map(TopBar);
+    App.get_monitors().filter(monitor => monitor.model.trim() === 'AQ27H1').map(TopBar);
     launcher = Launcher();
   },
   requestHandler: (request, res) => {

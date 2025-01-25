@@ -2,7 +2,6 @@ import { App, Gdk, Astal, Gtk } from 'astal/gtk3';
 
 import RamModule from './modules/ram/RamModule';
 import CpuModule from './modules/cpu/CpuModule';
-import BatteryModule from './modules/battery/BatteryModule';
 import WeatherModule from './modules/weather/WeatherModule';
 import TimeModule from './modules/time/TimeModule';
 import NetworkModule from './modules/network/NetworkModule';
@@ -26,7 +25,6 @@ export default (monitor: Gdk.Monitor) => {
     >
       <centerbox className='topbar__container' hexpand>
         <box halign={Gtk.Align.START} spacing={10}>
-          <BatteryModule/>
           <CpuModule/>
           <RamModule/>
           <NetworkModule/>
