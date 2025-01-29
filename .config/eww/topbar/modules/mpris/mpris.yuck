@@ -1,5 +1,5 @@
 (deflisten mpris-data
-  :initial "{}"
+  :initial '{"artist": "","title":"","playing":false,"paused":false}'
   "./scripts/active_player.bash"
 )
 

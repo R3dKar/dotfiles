@@ -26,14 +26,15 @@ rm ~/.config/user-dirs.dirs
 cp dotfiles/.config/user-dirs.dirs ~/.config/
 xdg-user-dirs-update
 
-# Hyprland plugins
-hyprpm update
-hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
-hyprpm enable dynamic-cursors
-hyprpm add https://github.com/zakk4223/hyprWorkspaceLayouts
-hyprpm enable hyprWorkspaceLayouts
-hyprpm update
-# also wanted to add hyprnstack but there is a build issue
+# Hyprland plugins (2 of them doesn't work after hyprland update, another one is useless without broken one)
+# hyprpm update
+# hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
+# hyprpm enable dynamic-cursors
+# hyprpm add https://github.com/zakk4223/hyprWorkspaceLayouts
+# hyprpm enable hyprWorkspaceLayouts
+# hyprpm add https://github.com/zakk4223/hyprNStack
+# hyprpm enable hyprNStack
+# hyprpm update
 
 # OMZ plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
