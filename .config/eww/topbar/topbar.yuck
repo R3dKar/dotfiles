@@ -1,0 +1,63 @@
+(include "./topbar/modules/cpu/cpu.yuck")
+(include "./topbar/modules/ram/ram.yuck")
+(include "./topbar/modules/network/network.yuck")
+(include "./topbar/modules/updates/updates.yuck")
+
+(include "./topbar/modules/time/time.yuck")
+(include "./topbar/modules/weather/weather.yuck")
+(include "./topbar/modules/tray/tray.yuck")
+(include "./topbar/modules/mpris/mpris.yuck")
+
+(include "./topbar/modules/workspaces/workspaces.yuck")
+(include "./topbar/modules/layout/layout.yuck")
+(include "./topbar/modules/speaker/speaker.yuck")
+(include "./topbar/modules/microphone/microphone.yuck")
+
+(defwindow topbar
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "5px"
+    :width "99%"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive true
+  :focusable "ondemand"
+
+  (centerbox
+    (group :halign "start"
+      (cpu-module)
+      (ram-module)
+      (network-module :device "enp4s0")
+      (updates-module)
+      (tray-module)
+    )
+    (group :halign "center"
+      (time-module)
+      (weather-module)
+      (mpris-module)
+    )
+    (group :halign "end"
+      (workspaces-module)
+      (layout-module)
+      (speaker-module)
+      (microphone-module)
+    )
+  )
+)
+
+(defwidget group [halign]
+  (box :class "group"
+    :halign halign
+    :valign "center"
+    :spacing 15
+    :space-evenly false
+
+    (children)
+  )
+)
+
+(defwidget icon [icon]
+  (label :class "icon" :text icon)
+)

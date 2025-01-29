@@ -1,0 +1,11 @@
+
+
+(defwidget network-module [device]
+    (box :class "network-module"
+      :spacing 5
+      :space-evenly false
+
+      (icon :icon "󰅢")
+      "${round(EWW_NET[device].NET_DOWN / powi(1024, round(log(EWW_NET[device].NET_DOWN, 1024) - 0.5, 0)), 1)} ${['', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'][round(log(EWW_NET[device].NET_DOWN, 1024) - 0.5, 0)]}B/s"
+    )
+)

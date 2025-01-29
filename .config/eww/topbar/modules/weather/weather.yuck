@@ -1,0 +1,31 @@
+(defpoll weather
+  :interval "10m"
+  :initial '{ "available": false }'
+  "./scripts/weather.py"
+)
+
+(defvar weather-show-feel false)
+
+(defwidget weather-module []
+  (eventbox
+    :cursor "pointer"
+    :onclick "${EWW_CMD} update weather-show-feel=${!weather-show-feel}"
+    :visible {weather.available}
+
+    (box
+      :spacing 5
+      :space-evenly false
+      :tooltip "${weather.city}"
+
+      (icon :icon {weather?.death ? "💀" : weather?.thunder ? "" : weather?.snow ? "" : weather?.rain ? "" : weather?.clouds ? "" : ""})
+      (stack
+        :selected {weather-show-feel ? 1 : 0}
+        :transition {weather-show-feel ? "slideup" : "slidedown"}
+        :same-size false
+
+        "${round(weather.real_temp, 0)}°C"
+        "≈${round(weather.feel_temp, 0)}°C"
+      )
+    )
+  )
+)

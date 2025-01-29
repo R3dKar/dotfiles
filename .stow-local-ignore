@@ -2,3 +2,4 @@
 ^\.editorconfig$
 ^README\.md$
 ^screenshots$
+^user-dirs\.dirs$

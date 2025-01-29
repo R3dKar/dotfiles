@@ -15,6 +15,6 @@ alias ipr="ip r"
 
 alias neofetch="fastfetch"
 
-function runbg {
-  hyprctl dispatch exec $@
+function launch {
+  hyprctl dispatch exec "$@"
 }

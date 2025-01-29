@@ -1,0 +1,16 @@
+@use "../palette.scss";
+@use "./modules/workspaces/workspaces.scss";
+@use "./modules/mpris/mpris.scss";
+
+.topbar {
+  background-color: transparent;
+}
+
+.group {
+  color: palette.$foregroundColor;
+  background-color: rgba(palette.$backgroundColor, 0.7);
+
+  border-bottom: 2px solid palette.$accentColor;
+  border-radius: 999px;
+  padding: 5px 10px;
+}

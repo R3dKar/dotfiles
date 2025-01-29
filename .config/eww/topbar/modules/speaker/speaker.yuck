@@ -1,0 +1,28 @@
+(deflisten speaker
+  :initial "{}"
+  "./scripts/default_speaker.bash"
+)
+
+(defwidget speaker-module []
+  (eventbox
+    :cursor "pointer"
+    :onrightclick "hyprctl dispatch exec pwvucontrol"
+    :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    :onscroll "./scripts/change_volume.bash @DEFAULT_AUDIO_SINK@ {}"
+
+    (box
+      :spacing 5
+      :space-evenly false
+
+      (stack
+        :selected {speaker.muted ? 1 : 0}
+        :transition {speaker.muted ? "slidedown" : "slideup"}
+        :same-size true
+
+        (icon :icon "")
+        (icon :icon "")
+      )
+      "${round(speaker.volume * 100, 0)}%"
+    )
+  )
+)

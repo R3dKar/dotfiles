@@ -1,0 +1,5 @@
+(defwidget tray-module []
+  (eventbox :cursor "pointer"
+    (systray :spacing 5 :icon-size 18)
+  )
+)

@@ -1,0 +1,28 @@
+(deflisten microphone
+  :initial "{}"
+  "./scripts/default_microphone.bash"
+)
+
+(defwidget microphone-module []
+  (eventbox
+    :cursor "pointer"
+    :onrightclick "hyprctl dispatch exec pwvucontrol"
+    :onclick "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    :onscroll "./scripts/change_volume.bash @DEFAULT_AUDIO_SOURCE@ {}"
+
+    (box
+      :spacing 5
+      :space-evenly false
+
+      (stack
+        :selected {microphone.muted ? 1 : 0}
+        :transition {microphone.muted ? "slidedown" : "slideup"}
+        :same-size true
+
+        (icon :icon "󰍬")
+        (icon :icon "󰍭")
+      )
+      "${round(microphone.volume * 100, 0)}%"
+    )
+  )
+)

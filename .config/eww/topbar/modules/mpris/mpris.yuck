@@ -1,0 +1,58 @@
+(deflisten mpris-data
+  :initial "{}"
+  "./scripts/active_player.bash"
+)
+
+(deflisten mpris-text-offset
+  :initial "0px"
+  "./scripts/active_player.bash | ./scripts/mpris_animation.py"
+)
+
+(defvar mpris-reveal-controls false)
+
+(defwidget mpris-module []
+  (revealer
+    :transition "slideright"
+    :reveal {mpris-data.playing}
+
+    (box
+      :spacing 5
+      :space-evenly false
+
+      (icon :icon "")
+      (overlay
+        (label :width 150 :text "")
+
+        (transform
+          :translate-x {mpris-text-offset}
+
+          {strlength(mpris-data.artist) > 0 && strlength(mpris-data.title) > 0 ? "${mpris-data.artist} - ${mpris-data.title}" : ""}
+        )
+
+        (eventbox :class "mpris-module__controls"
+          :onhover "${EWW_CMD} update mpris-reveal-controls=true"
+          :onhoverlost "${EWW_CMD} update mpris-reveal-controls=false"
+
+          (stack
+            :selected {mpris-reveal-controls ? 0 : 1}
+            :transition {mpris-reveal-controls ? "slideup" : "slidedown"}
+
+            (eventbox
+              :cursor "pointer"
+              :onclick "playerctl play-pause"
+
+              (stack
+                :selected {mpris-data.paused ? 0 : 1}
+                :same-size true
+
+                (icon :icon "")
+                (icon :icon "")
+              )
+            )
+            (label :text "")
+          )
+        )
+      )
+    )
+  )
+)

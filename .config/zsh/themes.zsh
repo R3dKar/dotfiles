@@ -1,3 +1,5 @@
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+
 [[ $(tty) =~ /dev/tty[1-9] ]] ; is_tty=$?
 
 [[ $is_tty = 0 ]] && ZSH_THEME="juanghurtado"

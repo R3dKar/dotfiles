@@ -1,0 +1,15 @@
+@use "../../../palette.scss";
+
+.workspace {
+  label {
+    color: palette.$accentColor;
+  }
+
+  &.empty label {
+    color: rgba(palette.$foregroundColor, 0.5);
+  }
+
+  &:disabled label {
+    color: palette.$foregroundColor;
+  }
+}

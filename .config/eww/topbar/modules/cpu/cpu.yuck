@@ -1,0 +1,9 @@
+(defwidget cpu-module []
+  (box
+    :spacing 5
+    :space-evenly false
+
+    (icon :icon "")
+    "${round(EWW_CPU.avg, 0)}%"
+  )
+)

@@ -1,0 +1,3 @@
+(defwidget time-module []
+  "${formattime(EWW_TIME, '%T %a %d.%m.%Y')}"
+)

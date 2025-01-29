@@ -1,0 +1,26 @@
+(deflisten active-layout
+  :initial "English (US)"
+  "./scripts/active_layout.bash"
+)
+
+(defwidget layout-module []
+  (eventbox
+    :cursor "pointer"
+    :onclick "hyprctl switchxkblayout main next"
+
+    (box
+      :spacing 5
+      :space-evenly false
+
+      (icon :icon "󰌌")
+      (stack
+        :selected {active-layout == "Russian" ? 0 : 1}
+        :transition {active-layout == "Russian" ? "slideup" : "slidedown"}
+        :same-size true
+
+        "Ru"
+        "En"
+      )
+    )
+  )
+)

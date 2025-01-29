@@ -1,0 +1,22 @@
+(defpoll updates-count
+  :interval "20m"
+  :initial "0"
+  "checkupdates | wc -l"
+)
+
+(defwidget updates-module []
+  (eventbox
+    :cursor "pointer"
+    :onclick `hyprctl dispatch exec "alacritty --hold -e zsh -c 'yay ; ${EWW_CMD} update updates-count=0'"`
+    :tooltip "${updates-count} package updates available"
+    :visible {updates-count > 0}
+
+    (box
+      :spacing 5
+      :space-evenly false
+
+      (icon :icon "󰣇")
+      "${updates-count}"
+    )
+  )
+)

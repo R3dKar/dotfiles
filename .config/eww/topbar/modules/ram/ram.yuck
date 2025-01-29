@@ -1,0 +1,9 @@
+(defwidget ram-module []
+  (box
+    :spacing 5
+    :space-evenly false
+
+    (icon :icon "")
+    "${round(EWW_RAM.used_mem_perc, 0)}%"
+  )
+)
