@@ -33,7 +33,7 @@
       (updates-module)
       (tray-module)
     )
-    (group :halign "center"
+    (group :halign "center" :style {mpris-data.playing ? "" : "padding-right: 0" }
       (time-module)
       (weather-module)
       (mpris-module)
@@ -47,12 +47,13 @@
   )
 )
 
-(defwidget group [halign]
+(defwidget group [halign ?style]
   (box :class "group"
     :halign halign
     :valign "center"
     :spacing 15
     :space-evenly false
+    :style {style}
 
     (children)
   )
