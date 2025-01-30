@@ -7,7 +7,7 @@
     :anchor "bottom right"
   )
 
-  :stacking "bg"
+  :stacking "bottom"
   :exclusive false
   :focusable "none"
 
