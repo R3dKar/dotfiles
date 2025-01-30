@@ -7,7 +7,7 @@ import json
 FPS = 165
 CHAR_WIDTH = 10
 CONTAINER_WIDTH = 150
-WAIT_TIME = 8
+WAIT_TIME = 4
 SLIDE_SPEED = 50
 
 playing = False
