@@ -1,0 +1,28 @@
+(defwindow activate
+  :monitor 0
+  :geometry (geometry
+    :x "50px"
+    :y "50px"
+    :width "375px"
+    :anchor "bottom right"
+  )
+
+  :stacking "bg"
+  :exclusive false
+  :focusable "none"
+
+  (box
+    :space-evenly false
+    :orientation "vertical"
+
+    (label :class "title"
+      :xalign 0
+      :text "Активация Linux"
+    )
+    (label :class "subtitle"
+      :xalign 0
+      :wrap true
+      :text 'Чтобы активировать Linux, перейдите в раздел "Параметры".'
+    )
+  )
+)

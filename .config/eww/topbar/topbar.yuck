@@ -2,10 +2,10 @@
 (include "./topbar/modules/ram/ram.yuck")
 (include "./topbar/modules/network/network.yuck")
 (include "./topbar/modules/updates/updates.yuck")
+(include "./topbar/modules/tray/tray.yuck")
 
 (include "./topbar/modules/time/time.yuck")
 (include "./topbar/modules/weather/weather.yuck")
-(include "./topbar/modules/tray/tray.yuck")
 (include "./topbar/modules/mpris/mpris.yuck")
 
 (include "./topbar/modules/workspaces/workspaces.yuck")

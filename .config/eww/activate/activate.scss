@@ -1,0 +1,15 @@
+$foregroundColor: rgba(white, 0.5);
+
+.activate {
+  background-color: transparent;
+  color: $foregroundColor;
+  font-weight: 300;
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+  }
+}
