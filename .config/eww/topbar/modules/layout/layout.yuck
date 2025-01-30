@@ -18,7 +18,7 @@
         :transition {active-layout == "Russian" ? "slideup" : "slidedown"}
         :same-size true
 
-        "Ru"
+        "Ру"
         "En"
       )
     )
