@@ -8,14 +8,14 @@
 
 ```bash
 # Dependencies
-yay -S hyprland cpio noto-fonts noto-fonts-emoji ttf-nerd-fonts-symbols \
+yay -S hyprland cpio noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-nerd-fonts-symbols \
 ttf-nerd-fonts-symbols-mono ttf-meslo-nerd zsh-theme-powerlevel10k-git \
 alacritty-sixel-git libsixel imagemagick btop stow nvidia-dkms libva-nvidia-driver \
 lib32-nvidia-utils  pipewire python-requests python-dotenv python-aioconsole \
 pacman-contrib pipewire-audio pipewire-pulse wireplumber xdg-desktop-portal-hyprland \
-network-manager-applet hyprpolkitagent qt5-wayland qt6-wayland socat \
-brightnessctl hyprpaper slurp grim cliphist playerctl calc xdg-user-dirs \
-arc-icon-theme arc-solid-gtk-theme nwg-look yandex-browser code fastfetch cava
+hyprpolkitagent qt5-wayland qt6-wayland socatb rightnessctl hyprpaper slurp grim \
+cliphist playerctl xdg-user-dirs arc-icon-theme arc-solid-gtk-theme nwg-look \
+yandex-browser code fastfetch cava
 
 # Stowing
 chmod +x dotfiles/.config/eww/scripts/*.py dotfiles/.config/eww/scripts/*.bash
