@@ -1,6 +1,6 @@
 (deflisten active-layout
   :initial "English (US)"
-  "./scripts/active_layout.bash"
+  "./scripts/layout.bash"
 )
 
 (defwidget layout-module []

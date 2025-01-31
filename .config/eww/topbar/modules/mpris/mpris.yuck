@@ -1,11 +1,11 @@
 (deflisten mpris-data
   :initial '{"artist": "","title":"","playing":false,"paused":false}'
-  "./scripts/active_player.bash"
+  "./scripts/mpris.bash"
 )
 
 (deflisten mpris-text-offset
   :initial "0px"
-  "./scripts/active_player.bash | ./scripts/mpris_animation.py"
+  "./scripts/mpris.bash | ./scripts/mpris_animation.py"
 )
 
 (defvar mpris-reveal-controls false)
