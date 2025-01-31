@@ -1,5 +1,5 @@
 (deflisten speaker
-  :initial "{}"
+  :initial '{ "volume": 1.00, "muted": true }'
   "./scripts/default_speaker.bash"
 )
 

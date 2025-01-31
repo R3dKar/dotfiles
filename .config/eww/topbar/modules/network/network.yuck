@@ -1,11 +1,9 @@
-
-
 (defwidget network-module [device]
     (box :class "network-module"
       :spacing 5
       :space-evenly false
 
       (icon :icon "󰅢")
-      "${round(EWW_NET[device].NET_DOWN / powi(1024, round(log(EWW_NET[device].NET_DOWN, 1024) - 0.5, 0)), 1)} ${['', 'к', 'М', 'Г', 'Т', 'П', 'Э', 'З', 'И'][round(log(EWW_NET[device].NET_DOWN, 1024) - 0.5, 0)]}Б/с"
+      "${round(EWW_NET[device].NET_DOWN / powi(1024, round(log(max(EWW_NET[device].NET_DOWN, 1), 1024) - 0.5, 0)), 1)} ${['', 'к', 'М', 'Г', 'Т', 'П', 'Э', 'З', 'И'][round(log(max(EWW_NET[device].NET_DOWN, 1), 1024) - 0.5, 0)]}Б/с"
     )
 )

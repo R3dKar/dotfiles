@@ -1,6 +1,6 @@
 (defpoll weather
   :interval "10m"
-  :initial '{ "available": false }'
+  :initial '{ "available": false, "city": "", "real_temp": 0, "feel_temp": 0, "death": false, "thunder": false, "snow": false, "rain": false, "clouds": false }'
   "./scripts/weather.py"
 )
 
@@ -17,7 +17,7 @@
       :space-evenly false
       :tooltip "${weather.city}"
 
-      (icon :icon {weather?.death ? "💀" : weather?.thunder ? "" : weather?.snow ? "" : weather?.rain ? "" : weather?.clouds ? "" : ""})
+      (icon :icon {weather.death ? "💀" : weather.thunder ? "" : weather.snow ? "" : weather.rain ? "" : weather.clouds ? "" : ""})
       (stack
         :selected {weather-show-feel ? 1 : 0}
         :transition {weather-show-feel ? "slideup" : "slidedown"}

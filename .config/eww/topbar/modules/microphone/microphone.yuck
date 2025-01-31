@@ -1,5 +1,5 @@
 (deflisten microphone
-  :initial "{}"
+  :initial '{ "volume": 1.00, "muted": true }'
   "./scripts/default_microphone.bash"
 )
 
