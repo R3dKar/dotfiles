@@ -1,0 +1,118 @@
+configuration {
+  show-icons: true;
+
+  fixed-num-lines: false;
+
+  drun-display-format: "{name}";
+  drun {
+    fallback-icon: "<span face='Symbols Nerd Font'>󰙵</span>";
+  }
+}
+
+* {
+  background: #111;
+  background-transparent: #111c;
+  background-light: #333;
+  foreground: White;
+  foreground-dark: #bbb;
+  accent: #588157;
+
+  background-color: Transparent;
+}
+
+window {
+  width: 600px;
+  location: north;
+  y-offset: 35%;
+
+  transparency: "real";
+  font: "Noto Sans 14";
+
+  children: [mainbox];
+}
+
+mainbox {
+  padding: 10px;
+  spacing: 10px;
+
+  border: 2px solid;
+  border-color: @accent;
+  border-radius: 10px;
+
+  background-color: @background-transparent;
+
+  children: [inputbar, listview];
+}
+
+inputbar {
+  spacing: 10px;
+  padding: 10px;
+  margin: 0 13px 0 0;
+
+  border-radius: 6px;
+
+  background-color: @background-light;
+
+  children: [icon-prompt, entry];
+}
+
+icon-prompt {
+  expand: false;
+  filename: "<span face='Symbols Nerd Font' color='white'></span>";
+  size: 18px;
+}
+
+entry {
+  cursor: pointer;
+  placeholder: "Введите текст...";
+
+  text-color: @foreground;
+  placeholder-color: @foreground-dark;
+  background-color: Transparent;
+}
+
+listview {
+  spacing: 5px;
+
+  scrollbar: true;
+  lines: 5;
+}
+
+scrollbar {
+  width: 10px;
+
+  background-color: @background-light;
+  handle-color: @accent;
+  border-radius: 999px;
+}
+
+element {
+  padding: 10px;
+  spacing: 10px;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  text-color: @foreground;
+
+  children: [element-icon, element-text];
+}
+
+element.selected {
+  text-color: @background-light;
+  background-color: @foreground;
+}
+
+element-icon {
+  cursor: inherit;
+  size: 36px;
+}
+
+element-text {
+  vertical-align: 0.5;
+
+  cursor: inherit;
+
+  text-color: inherit;
+  highlight: bold;
+}

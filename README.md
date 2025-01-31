@@ -15,7 +15,7 @@ lib32-nvidia-utils  pipewire python-requests python-dotenv python-aioconsole \
 pacman-contrib pipewire-audio pipewire-pulse wireplumber xdg-desktop-portal-hyprland \
 hyprpolkitagent qt5-wayland qt6-wayland socatb rightnessctl hyprpaper slurp grim \
 cliphist playerctl xdg-user-dirs arc-icon-theme arc-solid-gtk-theme nwg-look \
-yandex-browser code fastfetch cava
+rofi-wayland rofi-calc yandex-browser code fastfetch cava
 
 # Stowing
 chmod +x dotfiles/.config/eww/scripts/*.py dotfiles/.config/eww/scripts/*.bash

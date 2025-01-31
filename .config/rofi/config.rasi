@@ -1,0 +1,14 @@
+@theme "custom"
+
+configuration {
+  modes: "drun";
+
+  hover-select: true;
+  scroll-method: 1;
+
+  case-sensitive: false;
+  matching: "fuzzy";
+  matching-negate-char: "!";
+  sort: true;
+  sorting-method: "fzf";
+}
