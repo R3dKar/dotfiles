@@ -21,6 +21,7 @@
     :width "99%"
     :anchor "top center"
   )
+  :namespace "topbar"
   :stacking "fg"
   :exclusive true
   :focusable "ondemand"
