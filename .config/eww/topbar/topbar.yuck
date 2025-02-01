@@ -1,4 +1,5 @@
 (include "./topbar/modules/cpu/cpu.yuck")
+(include "./topbar/modules/gpu/gpu.yuck")
 (include "./topbar/modules/ram/ram.yuck")
 (include "./topbar/modules/network/network.yuck")
 (include "./topbar/modules/updates/updates.yuck")
@@ -29,6 +30,7 @@
   (centerbox
     (group :halign "start"
       (cpu-module)
+      (gpu-module)
       (ram-module)
       (network-module :device "enp4s0")
       (updates-module)

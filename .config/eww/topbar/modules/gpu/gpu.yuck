@@ -1,0 +1,15 @@
+(defpoll gpu-utilization
+  :interval "2s"
+  :initial "0"
+  "nvidia-smi --query-gpu 'utilization.gpu' --format 'csv,nounits,noheader'"
+)
+
+(defwidget gpu-module []
+  (box
+    :spacing 5
+    :space-evenly false
+
+    (icon :icon "󰢮")
+    "${gpu-utilization}%"
+  )
+)
