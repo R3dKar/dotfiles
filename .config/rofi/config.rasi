@@ -1,10 +1,7 @@
-@theme "drun"
-
 configuration {
-  modes: "drun";
+  modes: "drun,calc";
 
   hover-select: true;
-  scroll-method: 1;
 
   case-sensitive: false;
   matching: "fuzzy";
