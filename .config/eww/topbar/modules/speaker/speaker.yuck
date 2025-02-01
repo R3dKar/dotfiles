@@ -1,6 +1,6 @@
 (deflisten speaker
   :initial '{ "volume": 1.00, "muted": true }'
-  "./scripts/default_speaker.bash"
+  "./scripts/monitor-speaker.sh"
 )
 
 (defwidget speaker-module []
@@ -8,7 +8,7 @@
     :cursor "pointer"
     :onrightclick "hyprctl dispatch exec pwvucontrol"
     :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    :onscroll "./scripts/change_volume.bash @DEFAULT_AUDIO_SINK@ {}"
+    :onscroll "./scripts/change-volume.sh @DEFAULT_AUDIO_SINK@ {}"
 
     (box
       :spacing 5

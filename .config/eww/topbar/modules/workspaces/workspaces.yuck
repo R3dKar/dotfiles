@@ -1,15 +1,15 @@
 (deflisten workspaces
   :initial "[]"
-  "./scripts/workspaces.bash"
+  "./scripts/monitor-workspaces.sh"
 )
 (deflisten active-workspace
   :initial "1"
-  "./scripts/active_workspace.bash"
+  "./scripts/monitor-active-workspace.sh"
 )
 
 (defwidget workspaces-module []
   (eventbox
-    :onscroll "./scripts/change_workspace.bash ${active-workspace} {}"
+    :onscroll "./scripts/change-workspace.sh ${active-workspace} {}"
 
     (box
       :spacing 5

@@ -1,6 +1,6 @@
 (deflisten microphone
   :initial '{ "volume": 1.00, "muted": true }'
-  "./scripts/default_microphone.bash"
+  "./scripts/monitor-microphone.sh"
 )
 
 (defwidget microphone-module []
@@ -8,7 +8,7 @@
     :cursor "pointer"
     :onrightclick "hyprctl dispatch exec pwvucontrol"
     :onclick "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-    :onscroll "./scripts/change_volume.bash @DEFAULT_AUDIO_SOURCE@ {}"
+    :onscroll "./scripts/change-volume.sh @DEFAULT_AUDIO_SOURCE@ {}"
 
     (box
       :spacing 5

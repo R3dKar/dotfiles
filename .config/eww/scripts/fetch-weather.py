@@ -34,4 +34,14 @@ try:
   print(json.dumps(result))
 
 except Exception:
-  print(json.dumps({ 'available': False }))
+  print(json.dumps({
+    'available': False,
+    'city': '',
+    'real_temp': 0,
+    'feel_temp': 0,
+    'death': False,
+    'thunder': False,
+    'snow': False,
+    'rain': False,
+    'clouds': False,
+  }))

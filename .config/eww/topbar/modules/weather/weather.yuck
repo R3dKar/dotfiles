@@ -1,7 +1,7 @@
 (defpoll weather
   :interval "10m"
   :initial '{ "available": false, "city": "", "real_temp": 0, "feel_temp": 0, "death": false, "thunder": false, "snow": false, "rain": false, "clouds": false }'
-  "./scripts/weather.py"
+  "./scripts/fetch-weather.py"
 )
 
 (defvar weather-show-feel false)
