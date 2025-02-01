@@ -35,9 +35,9 @@ mainbox {
   padding: 10px;
   spacing: 10px;
 
-  border: 2px solid;
+  border: 0 0 2px 0;
   border-color: @accent;
-  border-radius: 10px;
+  border-radius: 15px;
 
   background-color: @background-transparent;
 
@@ -46,10 +46,12 @@ mainbox {
 
 inputbar {
   spacing: 10px;
-  padding: 10px;
+  padding: 5px 10px;
   margin: 0 13px 0 0;
 
-  border-radius: 6px;
+  border: 0 0 2px 0;
+  border-color: @accent;
+  border-radius: 999px;
 
   background-color: @background-light;
 
@@ -87,9 +89,10 @@ scrollbar {
 }
 
 element {
-  padding: 10px;
   spacing: 10px;
-  border-radius: 6px;
+  padding: 8px;
+
+  border-radius: 10px;
 
   cursor: pointer;
 
