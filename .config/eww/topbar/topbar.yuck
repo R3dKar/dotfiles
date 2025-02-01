@@ -6,7 +6,7 @@
 
 (include "./topbar/modules/time/time.yuck")
 (include "./topbar/modules/weather/weather.yuck")
-(include "./topbar/modules/mpris/mpris.yuck")
+(include "./topbar/modules/player/player.yuck")
 
 (include "./topbar/modules/workspaces/workspaces.yuck")
 (include "./topbar/modules/layout/layout.yuck")
@@ -34,10 +34,10 @@
       (updates-module)
       (tray-module)
     )
-    (group :halign "center" :style {mpris-data.playing ? "" : "padding-right: 0" }
+    (group :halign "center" :style {player-data.playing ? "" : "padding-right: 0" }
       (time-module)
       (weather-module)
-      (mpris-module)
+      (player-module)
     )
     (group :halign "end"
       (workspaces-module)

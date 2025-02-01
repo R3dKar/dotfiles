@@ -12,7 +12,7 @@ SLIDE_SPEED = 50
 
 playing = False
 paused = False
-fullName = ''
+name = ''
 
 state = 'wait'
 wait_passed = 0
@@ -28,17 +28,17 @@ async def reset():
 
 
 async def handleStdin():
-  global playing, paused, fullName
+  global playing, paused, name
 
   while True:
     line = await aioconsole.ainput()
     data = json.loads(line)
 
-    newName = f'{data['artist']} - {data['title']}'
-    if newName != fullName or newName == ' - ':
+    newName = data['name']
+    if newName != name or newName == '':
       await reset()
 
-    fullName = newName
+    name = newName
     paused = data['paused']
     playing = data['playing']
 
@@ -47,7 +47,7 @@ async def handleStdin():
 
 
 async def handleAnimation():
-  global state, wait_passed, slide_offset, playing, paused, fullName
+  global state, wait_passed, slide_offset, playing, paused, name
 
   while True:
     await asyncio.sleep(1 / FPS)
@@ -58,7 +58,7 @@ async def handleAnimation():
     if state == 'wait':
       wait_passed += 1 / FPS
 
-      if wait_passed >= WAIT_TIME and len(fullName) * CHAR_WIDTH >= CONTAINER_WIDTH:
+      if wait_passed >= WAIT_TIME and len(name) * CHAR_WIDTH >= CONTAINER_WIDTH:
         state = 'out'
         slide_offset = 0
 
@@ -66,7 +66,7 @@ async def handleAnimation():
       slide_offset += 1 / FPS * SLIDE_SPEED
       await aioconsole.aprint(f'{-slide_offset:f}px')
 
-      if slide_offset >= len(fullName) * CHAR_WIDTH:
+      if slide_offset >= len(name) * CHAR_WIDTH:
         state = 'in'
         slide_offset = CONTAINER_WIDTH
 
