@@ -16,5 +16,5 @@ alias ipr="ip r"
 alias neofetch="fastfetch"
 
 function launch {
-  hyprctl dispatch exec "$@"
+  uwsm app -- "$@"
 }
