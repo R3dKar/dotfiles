@@ -1,6 +1,6 @@
 # Hyprland dotfiles (WIP)
 
-![Screenshot](/screenshots/screenshot.png)
+![Screenshot](/screenshots/screenshot.jpg)
 
 # Installation
 
@@ -18,7 +18,7 @@ cliphist playerctl xdg-user-dirs arc-icon-theme arc-solid-gtk-theme nwg-look \
 rofi-wayland rofi-calc yandex-browser code fastfetch cava
 
 # Stowing
-chmod +x dotfiles/.config/eww/scripts/*.py dotfiles/.config/eww/scripts/*.sh
+chmod +x dotfiles/.config/eww/scripts/*.py dotfiles/.config/eww/scripts/*.sh dotfiles/.config/hypr/scripts/*.sh
 stow -Rvt ~ dotfiles
 
 # XDG user dirs
