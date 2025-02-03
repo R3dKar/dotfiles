@@ -4,3 +4,5 @@ export NVD_BACKEND=direct
 export __GL_SHADER_DISK_CACHE_SIZE=32212254720
 
 export GTK_THEME=Arc-Dark-solid
+export XCURSOR_THEME=Bibata-Modern-Classic
+export XCURSOR_SIZE=24
