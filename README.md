@@ -13,12 +13,14 @@ ttf-nerd-fonts-symbols-mono ttf-meslo-nerd zsh-theme-powerlevel10k-git \
 alacritty-sixel-git libsixel imagemagick btop stow nvidia-dkms libva-nvidia-driver \
 lib32-nvidia-utils  pipewire python-requests python-dotenv python-aioconsole \
 pacman-contrib pipewire-audio pipewire-pulse wireplumber xdg-desktop-portal-hyprland \
-hyprpolkitagent qt5-wayland qt6-wayland socat rightnessctl hyprpaper slurp grim \
+hyprpolkitagent qt5-wayland qt6-wayland socat hyprpaper slurp grim \
 cliphist playerctl xdg-user-dirs arc-icon-theme arc-solid-gtk-theme nwg-look \
 bibata-cursor-theme-bin rofi-wayland rofi-calc yandex-browser code fastfetch cava
 
 # Stowing
-chmod +x dotfiles/.config/eww/scripts/*.py dotfiles/.config/eww/scripts/*.sh dotfiles/.config/hypr/scripts/*.sh
+chmod u+x dotfiles/.config/eww/scripts/*.py
+chmod u+x dotfiles/.config/eww/scripts/*.sh
+chmod u+x dotfiles/.config/hypr/scripts/*.sh
 stow -Rvt ~ dotfiles
 
 # XDG user dirs
@@ -28,5 +30,5 @@ xdg-user-dirs-update
 
 # OMZ plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autocomplete.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
