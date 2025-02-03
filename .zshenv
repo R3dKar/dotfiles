@@ -1,3 +1,3 @@
-path+=/home/r3dkar/.local/bin
+path+=~/.local/bin
 
 export PATH
