@@ -3,7 +3,6 @@
 (include "./topbar/modules/ram/ram.yuck")
 (include "./topbar/modules/network/network.yuck")
 (include "./topbar/modules/updates/updates.yuck")
-(include "./topbar/modules/tray/tray.yuck")
 
 (include "./topbar/modules/time/time.yuck")
 (include "./topbar/modules/weather/weather.yuck")
@@ -34,7 +33,6 @@
       (ram-module)
       (network-module :device "enp4s0")
       (updates-module)
-      (tray-module)
     )
     (group :halign "center" :style {player-data.playing ? "" : "padding-right: 0" }
       (time-module)
