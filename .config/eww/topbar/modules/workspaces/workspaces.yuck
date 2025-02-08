@@ -15,16 +15,28 @@
       :spacing 5
       :space-evenly true
 
-      (label :text "${workspaces}${active-workspace}" :visible false)
-      (for workspace in workspaces
-        (eventbox :class "workspace ${workspace.windows > 0 ? 'occupied' : 'empty'}"
-          :cursor "pointer"
-          :active {workspace.id != active-workspace}
-          :onclick "hyprctl dispatch workspace ${workspace.id}"
+      (workspace-element :workspaceId 1)
+      (workspace-element :workspaceId 2)
+      (workspace-element :workspaceId 3)
+      (workspace-element :workspaceId 4)
+      (workspace-element :workspaceId 5)
+      (workspace-element :workspaceId 6)
+      (workspace-element :workspaceId 7)
+      (workspace-element :workspaceId 8)
+      (workspace-element :workspaceId 9)
+      (workspace-element :workspaceId 10)
+    )
+  )
+)
 
-          "${workspace.id}"
-        )
-      )
+(defwidget workspace-element [workspaceId]
+  (box
+    (eventbox :class "workspace ${workspaces[workspaceId - 1].windows > 0 ? 'occupied' : 'empty'}"
+      :cursor "pointer"
+      :active {workspaceId != active-workspace}
+      :onclick "hyprctl dispatch workspace ${workspaceId}"
+
+      "${workspaceId}"
     )
   )
 )
