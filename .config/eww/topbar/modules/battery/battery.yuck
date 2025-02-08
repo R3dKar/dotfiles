@@ -1,0 +1,9 @@
+(defwidget battery-module [device]
+  (box
+    :spacing 5
+    :space-evenly false
+
+    (icon :icon {EWW_BATTERY[device].status != "Discharging" ? "󰂄" : EWW_BATTERY[device].capacity < 20 ? "󰂃" : "󰁹"})
+    "${EWW_BATTERY[device].capacity}%"
+  )
+)
