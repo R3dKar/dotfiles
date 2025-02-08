@@ -31,7 +31,7 @@
       (cpu-module)
       (gpu-module)
       (ram-module)
-      (network-module :device "enp4s0")
+      (network-module)
       (updates-module)
     )
     (group :halign "center" :style {music-data.playing ? "" : "padding-right: 0" }

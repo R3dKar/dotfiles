@@ -1,9 +1,18 @@
-(defwidget network-module [device]
+(defpoll network-device
+  :interval "2s"
+  :initial "unknown"
+  "ip r g 8.8.8.8 | awk 'END { if (NR==0) print \"unknown\" } $4==\"dev\" { print $5; exit }'"
+)
+
+(defwidget network-module []
     (box :class "network-module"
       :spacing 5
       :space-evenly false
 
-      (icon :icon "󰅢")
-      "${round(EWW_NET[device].NET_DOWN / powi(1024, round(log(max(EWW_NET[device].NET_DOWN, 1), 1024) - 0.5, 0)), 1)} ${['', 'к', 'М', 'Г', 'Т', 'П', 'Э', 'З', 'И'][round(log(max(EWW_NET[device].NET_DOWN, 1), 1024) - 0.5, 0)]}Б/с"
+      (icon :icon {network-device != "unknown" ? "󰅢" : ""})
+      (label
+        :visible {network-device != "unknown"}
+        :text "${round((EWW_NET[network-device]?.NET_DOWN ?: 0) / powi(1024, round(log(max(EWW_NET[network-device]?.NET_DOWN ?: 0, 1), 1024) - 0.5, 0)), 1)} ${['', 'к', 'М', 'Г', 'Т', 'П', 'Э', 'З', 'И'][round(log(max(EWW_NET[network-device]?.NET_DOWN ?: 0, 1), 1024) - 0.5, 0)]}Б/с"
+      )
     )
 )
