@@ -8,6 +8,7 @@
     (box :class "network-module"
       :spacing 5
       :space-evenly false
+      :tooltip {network-device != "unknown" : network-device ? "Нет подключения к интернету"}
 
       (icon :icon {network-device != "unknown" ? "󰅢" : ""})
       (label
