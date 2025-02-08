@@ -6,7 +6,7 @@
 
 (include "./topbar/modules/time/time.yuck")
 (include "./topbar/modules/weather/weather.yuck")
-(include "./topbar/modules/player/player.yuck")
+(include "./topbar/modules/music/music.yuck")
 
 (include "./topbar/modules/workspaces/workspaces.yuck")
 (include "./topbar/modules/layout/layout.yuck")
@@ -34,10 +34,10 @@
       (network-module :device "enp4s0")
       (updates-module)
     )
-    (group :halign "center" :style {player-data.playing ? "" : "padding-right: 0" }
+    (group :halign "center" :style {music-data.playing ? "" : "padding-right: 0" }
       (time-module)
       (weather-module)
-      (player-module)
+      (music-module)
     )
     (group :halign "end"
       (workspaces-module)

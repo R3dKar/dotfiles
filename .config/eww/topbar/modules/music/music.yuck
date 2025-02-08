@@ -1,0 +1,58 @@
+(deflisten music-data
+  :initial '{ "name": "", "playing": false, "paused": false }'
+  "./scripts/monitor-music.sh"
+)
+
+(deflisten music-text-offset
+  :initial "0px"
+  "./scripts/monitor-music.sh | ./scripts/monitor-music-text-animation.py"
+)
+
+(defvar music-reveal-controls false)
+
+(defwidget music-module []
+  (revealer
+    :transition "slideright"
+    :reveal {music-data.playing}
+
+    (box
+      :spacing 5
+      :space-evenly false
+
+      (icon :icon "")
+      (overlay
+        (label :width 150 :text "")
+
+        (transform
+          :translate-x {music-text-offset}
+
+          {music-data.name}
+        )
+
+        (eventbox :class "music-module__controls"
+          :onhover "${EWW_CMD} update music-reveal-controls=true"
+          :onhoverlost "${EWW_CMD} update music-reveal-controls=false"
+
+          (stack
+            :selected {music-reveal-controls ? 0 : 1}
+            :transition {music-reveal-controls ? "slideup" : "slidedown"}
+
+            (eventbox
+              :cursor "pointer"
+              :onclick "playerctl play-pause"
+
+              (stack
+                :selected {music-data.paused ? 0 : 1}
+                :same-size true
+
+                (icon :icon "")
+                (icon :icon "")
+              )
+            )
+            (label :text "")
+          )
+        )
+      )
+    )
+  )
+)
