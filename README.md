@@ -13,7 +13,7 @@ ttf-nerd-fonts-symbols-mono ttf-meslo-nerd zsh-theme-powerlevel10k-git \
 alacritty-sixel-git libsixel imagemagick btop stow nvidia-dkms libva-nvidia-driver \
 lib32-nvidia-utils  pipewire python-requests python-dotenv python-aioconsole \
 pacman-contrib pipewire-audio pipewire-pulse wireplumber xdg-desktop-portal-hyprland \
-hyprpolkitagent qt5-wayland qt6-wayland socat hyprpaper slurp grim \
+hyprpolkitagent qt5-wayland qt6-wayland socat hyprpaper hyprpicker slurp grim \
 cliphist playerctl xdg-user-dirs arc-icon-theme arc-solid-gtk-theme nwg-look \
 bibata-cursor-theme-bin rofi-wayland rofi-calc yandex-browser code fastfetch cava
 
