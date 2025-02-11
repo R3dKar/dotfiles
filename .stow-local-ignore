@@ -1,5 +1,6 @@
 ^\.git$
 ^\.editorconfig$
+^install.sh$
 ^README\.md$
 ^screenshots$
 ^user-dirs\.dirs$
