@@ -1,0 +1,3 @@
+(defwidget tray-module []
+  (systray :spacing 5 :icon-size 20)
+)
