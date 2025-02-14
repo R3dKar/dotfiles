@@ -7,7 +7,7 @@
 (defwidget updates-module []
   (eventbox
     :cursor "pointer"
-    :onclick `hyprctl dispatch exec "alacritty --hold -e zsh -c 'yay ; ${EWW_CMD} update updates-count=0'"`
+    :onclick "uwsm app -- kitty --hold zsh -c 'yay ; ${EWW_CMD} update updates-count=0'"
     :tooltip "${updates-count} обновлений пакетов"
     :visible {updates-count > 0}
 
