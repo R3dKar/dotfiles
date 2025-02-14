@@ -1,3 +1,4 @@
 **/uwsm/default-id
 
+*.log
 .env
