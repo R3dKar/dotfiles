@@ -8,7 +8,7 @@ lib32-nvidia-utils pipewire python-requests python-dotenv python-aioconsole \
 pacman-contrib pipewire-audio pipewire-pulse wireplumber xdg-desktop-portal-hyprland \
 hyprpolkitagent qt5-wayland qt6-wayland socat hyprpaper hyprpicker slurp grim \
 cliphist playerctl arc-icon-theme arc-solid-gtk-theme nwg-look \
-bibata-cursor-theme-bin rofi-wayland rofi-calc fastfetch cava
+bibata-cursor-theme-bin rofi-wayland rofi-calc fastfetch cava nordic-wallpapers
 
 # Stowing
 stow -Rvt ~ dotfiles
