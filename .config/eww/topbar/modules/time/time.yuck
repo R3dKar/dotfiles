@@ -1,21 +1,9 @@
 (defwidget time-module []
-  (box
-    :spacing 15
+  (box :class "time-module"
+    :spacing 5
     :space-evenly false
 
-    (box
-      :spacing 5
-      :space-evenly false
-
-      (icon :icon "󰥔")
-      "${formattime(EWW_TIME, '%T')}"
-    )
-    (box
-      :spacing 5
-      :space-evenly false
-
-      (icon :icon "")
-      "${formattime(EWW_TIME, '%d.%m.%Y %a')}"
-    )
+    (icon :icon "󰥔")
+    "${formattime(EWW_TIME, '%T')}"
   )
 )

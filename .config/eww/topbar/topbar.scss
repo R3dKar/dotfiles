@@ -1,16 +1,19 @@
-@use "../palette.scss";
-@use "./modules/workspaces/workspaces.scss";
+@use "../nordic.scss";
 @use "./modules/music/music.scss";
+@use "./modules/workspaces/workspaces.scss";
 
 .topbar {
   background-color: transparent;
 }
 
 .group {
-  color: palette.$foregroundColor;
-  background-color: rgba(palette.$backgroundColor, 0.7);
+  color: nordic.$snowStorm1;
+  background-color: rgba(nordic.$polarNight2, 0.8);
 
-  border-bottom: 2px solid palette.$accentColor;
   border-radius: 999px;
   padding: 5px 10px;
+}
+
+.icon {
+  color: nordic.$aurora1;
 }

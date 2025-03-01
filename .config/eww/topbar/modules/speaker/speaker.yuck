@@ -4,7 +4,7 @@
 )
 
 (defwidget speaker-module []
-  (eventbox
+  (eventbox :class "speaker-module"
     :cursor "pointer"
     :onrightclick "hyprctl dispatch exec pwvucontrol"
     :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"

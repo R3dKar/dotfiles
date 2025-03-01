@@ -11,7 +11,7 @@
   "display": {
     "separator": "  ",
     "color": {
-      "keys": "light_red"
+      "keys": "red"
     },
     "size": {
       "ndigits": 0,
@@ -25,9 +25,9 @@
     {
       "type": "title",
       "color": {
-        "user": "light_red",
+        "user": "red",
         "at": "white",
-        "host": "light_red"
+        "host": "blue"
       }
     },
     "os",

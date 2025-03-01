@@ -1,0 +1,9 @@
+(defwidget date-module []
+  (box :class "date-module"
+    :spacing 5
+    :space-evenly false
+
+    (icon :icon "")
+    "${formattime(EWW_TIME, '%d.%m.%Y %a')}"
+  )
+)

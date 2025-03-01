@@ -1,5 +1,5 @@
 (defwidget battery-module [device]
-  (box
+  (box :class "battery-module"
     :spacing 5
     :space-evenly false
 

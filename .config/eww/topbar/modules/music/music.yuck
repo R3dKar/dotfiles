@@ -11,7 +11,7 @@
 (defvar music-reveal-controls false)
 
 (defwidget music-module []
-  (revealer
+  (revealer :class "music-module"
     :transition "slideright"
     :reveal {music-data.playing}
 

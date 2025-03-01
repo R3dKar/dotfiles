@@ -1,5 +1,5 @@
 (defwidget cpu-module []
-  (box
+  (box :class "cpu-module"
     :spacing 5
     :space-evenly false
 

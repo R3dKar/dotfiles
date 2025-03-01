@@ -1,9 +1,11 @@
-@use "../../../palette.scss";
+@use "../../../nordic.scss";
 
-.music-module__controls {
-  transition: background-color 0.2s ease;
+.music-module {
+  &__controls {
+    transition: background-color 0.2s ease;
 
-  &:hover {
-    background-color: rgba(palette.$backgroundColor, 0.7);
+    &:hover {
+      background-color: rgba(nordic.$polarNight4, 0.7);
+    }
   }
 }

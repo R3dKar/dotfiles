@@ -5,7 +5,7 @@
 )
 
 (defwidget gpu-module []
-  (box
+  (box :class "gpu-module"
     :spacing 5
     :space-evenly false
 

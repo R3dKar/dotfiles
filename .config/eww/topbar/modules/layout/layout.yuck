@@ -4,7 +4,7 @@
 )
 
 (defwidget layout-module []
-  (eventbox
+  (eventbox :class "layout-module"
     :cursor "pointer"
     :onclick "hyprctl switchxkblayout main next"
 

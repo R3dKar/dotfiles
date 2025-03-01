@@ -1,17 +1,17 @@
-@use "../../../palette.scss";
+@use "../../../nordic.scss";
 
 .workspace {
   label {
     transition: color 0.2s ease;
 
-    color: palette.$accentColor;
+    color: nordic.$aurora1;
   }
 
   &.empty label {
-    color: rgba(palette.$foregroundColor, 0.5);
+    color: nordic.$frost4;
   }
 
   &:disabled label {
-    color: palette.$foregroundColor;
+    color: nordic.$snowStorm1;
   }
 }

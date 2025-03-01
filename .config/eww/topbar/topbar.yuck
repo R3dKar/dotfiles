@@ -1,11 +1,9 @@
-(include "./topbar/modules/cpu/cpu.yuck")
-(include "./topbar/modules/gpu/gpu.yuck")
-(include "./topbar/modules/ram/ram.yuck")
 (include "./topbar/modules/network/network.yuck")
 (include "./topbar/modules/updates/updates.yuck")
 (include "./topbar/modules/tray/tray.yuck")
 
 (include "./topbar/modules/time/time.yuck")
+(include "./topbar/modules/date/date.yuck")
 (include "./topbar/modules/weather/weather.yuck")
 (include "./topbar/modules/music/music.yuck")
 
@@ -29,13 +27,12 @@
 
   (centerbox
     (group :halign "start"
-      (cpu-module)
-      (ram-module)
+      (tray-module)
       (network-module)
       (updates-module)
-      (tray-module)
     )
     (group :halign "center" :style {music-data.playing ? "" : "padding-right: 0" }
+      (date-module)
       (time-module)
       (weather-module)
       (music-module)

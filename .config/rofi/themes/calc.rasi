@@ -24,7 +24,7 @@ mainbox {
   padding: 10px;
   spacing: 10px;
 
-  border: 0 0 2px 0;
+  border: 2px;
   border-color: @accent;
   border-radius: 15px;
 
@@ -37,8 +37,6 @@ inputbar {
   spacing: 10px;
   padding: 5px 10px;
 
-  border: 0 0 2px 0;
-  border-color: @accent;
   border-radius: 999px;
 
   background-color: @background-light;

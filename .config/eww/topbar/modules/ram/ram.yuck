@@ -1,5 +1,5 @@
 (defwidget ram-module []
-  (box
+  (box :class "ram-module"
     :spacing 5
     :space-evenly false
 

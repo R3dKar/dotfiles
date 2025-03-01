@@ -1,0 +1,89 @@
+# btop nordic theme
+# recreated from https://www.reddit.com/r/unixporn/comments/1iwahge/dwm_remade_my_configuration/#lightbox
+
+# Colors should be in 6 or 2 character hexadecimal or single spaced rgb decimal: "#RRGGBB", "#BW" or "0-255 0-255 0-255"
+# example for white: "#ffffff", "#ff" or "255 255 255".
+
+# All graphs and meters can be gradients
+# For single color graphs leave "mid" and "end" variable empty.
+# Use "start" and "end" variables for two color gradient
+# Use "start", "mid" and "end" for three color gradient
+
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg]="#2e3441"
+
+# Main text color
+theme[main_fg]="#eceff4"
+
+# Title color for boxes
+theme[title]="#bf616a"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#bf616a"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#bf616a"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#eceff4"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#4c566a"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#81a1c1"
+
+# Cpu box outline color
+theme[cpu_box]="#88c0d0"
+
+# Memory/disks box outline color
+theme[mem_box]="#88c0d0"
+
+# Net up/down box outline color
+theme[net_box]="#88c0d0"
+
+# Processes box outline color
+theme[proc_box]="#88c0d0"
+
+# Box divider line and small boxes line color
+theme[div_line]="#4c566a"
+
+# Temperature graph colors
+theme[temp_start]="#81a1c1"
+theme[temp_mid]="#bf616a"
+theme[temp_end]="#eceff4"
+
+# CPU graph colors
+theme[cpu_start]="#81a1c1"
+theme[cpu_mid]="#bf616a"
+theme[cpu_end]="#eceff4"
+
+# Mem/Disk free meter
+theme[free_start]="#81a1c1"
+theme[free_mid]="#bf616a"
+theme[free_end]="#eceff4"
+
+# Mem/Disk cached meter
+theme[free_start]="#81a1c1"
+theme[free_mid]="#bf616a"
+theme[free_end]="#eceff4"
+
+# Mem/Disk available meter
+theme[available_start]="#81a1c1"
+theme[available_mid]="#bf616a"
+theme[available_end]="#eceff4"
+
+# Mem/Disk used meter
+theme[used_start]="#81a1c1"
+theme[used_mid]="#bf616a"
+theme[used_end]="#eceff4"
+
+# Download graph colors
+theme[download_start]="#81a1c1"
+theme[download_mid]="#bf616a"
+theme[download_end]="#eceff4"
+
+# Upload graph colors
+theme[upload_start]="#81a1c1"
+theme[upload_mid]="#bf616a"
+theme[upload_end]="#eceff4"
