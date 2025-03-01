@@ -2,6 +2,6 @@ export LIBVA_DRIVER_NAME=nvidia
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export NVD_BACKEND=direct
 
-export GTK_THEME=Nordic
+export GTK_THEME=Arc-Dark-solid
 export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
