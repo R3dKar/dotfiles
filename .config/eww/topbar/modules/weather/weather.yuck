@@ -7,7 +7,7 @@
 (defvar weather-show-feel false)
 
 (defwidget weather-module []
-  (eventbox
+  (eventbox :class "weather-module"
     :cursor "pointer"
     :onclick "${EWW_CMD} update weather-show-feel=${!weather-show-feel}"
     :visible {weather.available}

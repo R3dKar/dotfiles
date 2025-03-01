@@ -1,0 +1,7 @@
+@use "../../../nordic.scss";
+
+.weather-module {
+  .icon {
+    color: nordic.$snowStorm1;
+  }
+}
