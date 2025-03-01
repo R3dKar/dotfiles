@@ -1,4 +1,5 @@
 **/uwsm/default-id
+**/cava/shaders/
 
 *.log
 .env
