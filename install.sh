@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Dependencies
 yay -S --needed hyprland uwsm noto-fonts noto-fonts-emoji noto-fonts-cjk \
 ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono ttf-jetbrains-mono-nerd \
