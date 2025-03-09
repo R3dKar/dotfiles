@@ -4,7 +4,7 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Dependencies
-yay -S --needed hyprland uwsm noto-fonts noto-fonts-emoji noto-fonts-cjk \
+yay -S --needed hyprland noto-fonts noto-fonts-emoji noto-fonts-cjk \
 ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono ttf-jetbrains-mono-nerd \
 kitty imagemagick zsh-theme-powerlevel10k-git btop stow nvidia-dkms libva-nvidia-driver \
 lib32-nvidia-utils pipewire python-requests python-dotenv python-aioconsole \
